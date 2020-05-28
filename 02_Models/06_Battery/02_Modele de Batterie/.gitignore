@@ -1,0 +1,7 @@
+work
+*.mexw64
+work/slprj
+/src/slprj
+/src/*_slrt_rtw
+/src/*_ert_rtw
+/Doc/HTML/helpsearch-v3

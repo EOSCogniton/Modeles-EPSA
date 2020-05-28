@@ -1,0 +1,11 @@
+1/ Trouvez le dossier de 'advisor'
+2/ Mettez 'Eliz_in.m' dans le sous-dossier 'advisor/saved_vehicles'
+3/ Mettez 'ESS_18650.m' dans le sous-dossier 'advisor/data/energy_storage'
+4/ Mettez 'MC_ERMAX228.m' dans le sous-dossier 'advisor/data/motor'
+5/ Mettez 'VEH_Eliz.m' dans le sous-dossier 'advisor/data/vehicles'
+6/ Lancez 'advisor' dans le Matlab et démarrez en choissisez 'metric' (pour l'unité km/h)
+7/ Chochez 'li' pour le 'type' de 'energy_stored'.
+8/ Continuez en appuyant sur 'continue'
+9/ Chochez les paramètres pour la teste ('CYC_EUDC' est un bon choix pour commemcer) et la lancez par le bouton 'Run'
+10/ Cliquez la fenêtre d'une figure pour charge de diagrammes ('hold on' vos permettez de mettre deux diagrammes dans la même fenêtre)
+11/ Clique 'Fiche-Export' pour sauvegarde les diagrammes sous la forme de fig(pour Matlab) 

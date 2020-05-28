@@ -1,0 +1,4 @@
+@JZU19
+This is a Matlab program which provide you a reference for you final configuration. In this folder, you can find also a .mat file based on the first configuration of our battery. It inclures the entry parameters and also the result, which is all automatically saved by the program.
+P.S. For the people who is now familiar with Mathlab, if you want to load the .mat, just find it in the menu of matlab's window at double-click it. If you want to change the paramters while the program is running, just find it in workspace and enter to modify it also by  a simple double-click.
+I wish you a happy usage !
