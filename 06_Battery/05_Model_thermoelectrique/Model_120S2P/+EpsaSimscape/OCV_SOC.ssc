@@ -1,0 +1,36 @@
+component OCV_SOC
+% Open Circuit Voltage Source with estimation of SOC
+% The block represents an ideal voltage source that is powerful enough
+% to maintain the specified voltage at its output regardless of the
+% current passing through it. The output voltage is OCV = Vs, where
+% OCV can be determined outside with a 2-D Look-up Table representing a 
+% empirical relation OCV = OCV(Temperature, SOC).
+
+inputs
+    OCV = { 0, 'V' }; % OCV :bottom
+end
+
+parameters
+    toVoltage = {1, 'V'};     % To convert the unit
+end
+
+nodes
+    p = foundation.electrical.electrical; % + :top
+    n = foundation.electrical.electrical; % - :bottom
+end
+
+variables(Access=private)
+    i = { 0, 'A' };
+    v = { 0, 'V' };
+end
+
+branches
+    i : p.i -> n.i;
+end
+
+equations
+    v == p.v - n.v;
+    v == OCV;
+end
+
+end

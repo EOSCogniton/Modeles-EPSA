@@ -1,0 +1,58 @@
+component thermal_variable_resistor
+% Thermal Variable Resistor :1.0
+% This block represents a resistor with a variable resistance. You can 
+% branch it outside with a 2-D Look-up table to determine the temporary 
+% resistance with an empirical relation R=R(Temperature, SOC).
+%
+% The temperature T of the resistor is governed by the equation
+% K_d*t_c*dT/dt = Q + i^2*R(T) where Q is the net heat flow into port A,
+% i is the current, t_c is the Thermal time constant and K_d is the
+% Dissipation factor.
+
+% Copyright 2007-2016 The MathWorks, Inc.
+
+inputs
+    R = { 0.0, 'Ohm' }; % R:left
+end
+
+nodes
+    p = foundation.electrical.electrical; % +:left
+    H = foundation.thermal.thermal; % H:right
+    n = foundation.electrical.electrical; % -:right
+end
+    
+parameters
+    T0 = {298.15,'K'};        % Reference temperature
+    tc = {10,'s'};            % Thermal time constant
+    K_d = {1e-3,'W/K'};       % Dissipation factor
+end
+
+parameters(Access=private)
+    mc = tc*K_d; % mc in Q = m*c*dT
+end
+    
+variables(Access=protected)
+    i = { 0, 'A' };   % Current
+    Q = { 0, 'J/s' }; % Heat flow
+end
+
+variables
+    T = {value = {300, 'K'}, priority = priority.high}; % Temperature
+end
+
+branches
+  i : p.i -> n.i
+  Q : H.Q -> *
+end   
+
+equations
+    assert(R>0)
+    assert(tc>0)
+    assert(K_d>0)
+    assert(T0>0)
+    T == H.T;
+    R*i == p.v-n.v; % Electrical equation
+    mc * T.der == Q + R*i*i; % Thermal equation
+end
+
+end
