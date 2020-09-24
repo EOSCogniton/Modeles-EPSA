@@ -13,9 +13,10 @@ for i = 1:length(names)
         'P',num2str(1+mod(i,s).','%03d')]];
 end
 legend(label);title("Evolution of each cell's Temperature");
+clear tem_i;
 
 subplot(1,2,2);ylabel('SOC(.)');
-names=fieldnames(out.soc);soc=[];label=[];
+names=fieldnames(out.soc);soc=[];
 for i = 1:length(names)
     name=names(i);name=name{1};
     eval(['out.soc.',name,'.Name="SOC(.)";']);
@@ -24,6 +25,9 @@ for i = 1:length(names)
     plot(soc_i);
 end
 legend(label);title("Evolution of each cell's SOC(State of Charge)");
+clear soc_i;
+
+clear label;clear name;clear names;clear i;
 
 figure;
 subplot(1,2,1);out.Power.Name='Power(kW)';ylabel('Power(kW)');
@@ -46,6 +50,5 @@ end
 contourf(soc,1:-0.01:0,'ShowText','on');
 title("Final distribution of SOC");
 
-clear tem;clear soc;clear tem_i;clear soc_i;
-clear label;clear name;clear names;
-clear i;clear s;clear p;
+clear tem;clear soc;
+clear s;clear p;

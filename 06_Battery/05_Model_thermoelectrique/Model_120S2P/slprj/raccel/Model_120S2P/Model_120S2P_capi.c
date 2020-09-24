@@ -9266,8 +9266,8 @@ rtcapiStoredFloats [ 2 ] , 1 , 0 } } ; static rtwCAPI_ModelMappingStaticInfo
 mmiStatic = { { rtBlockSignals , 1689 , ( NULL ) , 0 , ( NULL ) , 0 } , {
 rtBlockParameters , 1685 , rtModelParameters , 1 } , { ( NULL ) , 0 } , {
 rtDataTypeMap , rtDimensionMap , rtFixPtMap , rtElementMap , rtSampleTimeMap
-, rtDimensionArray } , "float" , { 297481344U , 1464850065U , 3848195364U ,
-3943293659U } , ( NULL ) , 0 , 0 } ; const rtwCAPI_ModelMappingStaticInfo *
+, rtDimensionArray } , "float" , { 3858550783U , 1867575673U , 3057019721U ,
+1431965586U } , ( NULL ) , 0 , 0 } ; const rtwCAPI_ModelMappingStaticInfo *
 Model_120S2P_GetCAPIStaticMap ( void ) { return & mmiStatic ; }
 #ifndef HOST_CAPI_BUILD
 void Model_120S2P_InitializeDataMapInfo ( void ) { rtwCAPI_SetVersion ( ( *
