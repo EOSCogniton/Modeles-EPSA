@@ -7,8 +7,8 @@ for i = 1:length(names)
     name=names(i);name=name{1};
     eval(['out.temperature.',name,'.Name="Temperature(^oC)";']);
     tem_i=eval(['out.temperature.',name]);
-    tem=[tem,tem_i.Data(length(tem_i))];
-    hold on;plot(tem_i);ylim([20,60]);
+    tem=[tem,tem_i.Data(length(tem_i.Data))];
+    hold on;plot(tem_i);ylim([0,60]);
     label=[label;['S',num2str(ceil(i/s).','%03d'),...
         'P',num2str(1+mod(i,s).','%03d')]];
 end
@@ -21,8 +21,8 @@ for i = 1:length(names)
     name=names(i);name=name{1};
     eval(['out.soc.',name,'.Name="SOC(.)";']);
     soc_i=eval(['out.soc.',name]);
-    soc=[soc,soc_i.Data(length(soc_i))];
-    hold on;plot(soc_i);ylim([0.6,1]);
+    soc=[soc,soc_i.Data(length(soc_i.Data))];
+    hold on;plot(soc_i);ylim([0,1]);
 end
 legend(label);title("Evolution of each cell's SOC(State of Charge)");
 clear soc_i;
