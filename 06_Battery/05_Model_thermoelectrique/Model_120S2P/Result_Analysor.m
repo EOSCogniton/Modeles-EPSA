@@ -8,7 +8,7 @@ for i = 1:length(names)
     eval(['out.temperature.',name,'.Name="Temperature(^oC)";']);
     tem_i=eval(['out.temperature.',name]);
     tem=[tem,tem_i.Data(length(tem_i.Data))];
-    hold on;plot(tem_i);ylim([0,60]);
+    hold on;plot(tem_i);
     label=[label;['S',num2str(ceil(i/s).','%03d'),...
         'P',num2str(1+mod(i,s).','%03d')]];
 end
@@ -22,7 +22,7 @@ for i = 1:length(names)
     eval(['out.soc.',name,'.Name="SOC(.)";']);
     soc_i=eval(['out.soc.',name]);
     soc=[soc,soc_i.Data(length(soc_i.Data))];
-    hold on;plot(soc_i);ylim([0,1]);
+    hold on;plot(soc_i)
 end
 legend(label);title("Evolution of each cell's SOC(State of Charge)");
 clear soc_i;
@@ -34,6 +34,7 @@ subplot(1,2,1);out.Power.Name='Power(kW)';ylabel('Power(kW)');
 plot(out.Power);title("Evolution of total power");
 subplot(1,2,2);out.ocv.Name='Voltage';ylabel('Voltage(V)');
 plot(out.ocv);title("Evolution of total voltage");
+energie = sum(out.Power.Data)*0.02/3600;
 
 figure;
 subplot(1,2,1);tem = reshape(tem,s,p);
