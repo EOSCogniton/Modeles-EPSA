@@ -1,4 +1,4 @@
-function [V,Gx,Gy,t,D,GGV] = LapTime(track_file,param_file)
+function [V,Gx,Gy,t,D,GGV] = LapTime(track_file,param_file,Vi)
 %----TRACK processing----
 load(track_file,'track')
 % Get curvature and smooth
@@ -23,7 +23,7 @@ V_vector = (1:10:140)/3.6; %compute GGV diagramme for velocity (m/s) between 0 a
 GGV = makeGGV(param_file,V_vector);
 
 %---Init---
-V = 0;
+V = Vi;
 t = 0;
 Gy = 0;
 Gx = findGxmax(Gy,V,GGV);
