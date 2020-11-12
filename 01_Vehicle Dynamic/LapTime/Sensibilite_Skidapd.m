@@ -3,9 +3,11 @@ addpath(genpath('.\subfunctions'))
 
 %- Rentrez le path de votre fichier véhicule de base :
 %- Attention à enregistrer le paramètre d'origine !!
-Paramfile = 'C:\Users\bobau\Documents\EPSA\Ressources2020\MO_Models\LapTime\Vehicules\param_elec_continuous.mat'; %<-- à modifier
+Paramfile_1 = '.\Vehicules\Valkyriz_accel.mat'; %<-- à modifier
+copyfile(Paramfile_1,'.\temp.mat');
+Paramfile_temp = '.\temp.mat';
 
-m = matfile(Paramfile,'Writable',true);
+m = matfile(Paramfile_temp,'Writable',true);
 
 start = 0.3; %<-- à modifier
 step = 0.05; %<-- à modifier
@@ -22,10 +24,12 @@ for param=L
     % véhicule relié à la masse totale et à l ahauteur du COG) il faut
     % retaper la relation avec de m. devant le nom des variables
     m.q = param;  %<-- à modifier
-    [~,V_skidpad] = findGymax(R_skidpad,Paramfile);
+    [~,V_skidpad] = findGymax(R_skidpad,Paramfile_temp);
     time = (2*pi*R_skidpad)/V_skidpad;
     T = [T,time];
 end
+
+delete(Paramfile_temp)
 
 plot(L,T)
 % Changer les titres des axes et du graphique

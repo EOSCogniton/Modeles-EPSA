@@ -7,14 +7,12 @@
 addpath(genpath('.\subfunctions'))
 
 %- Rentrez le path de votre fichier véhicule de base :
-
-Paramfile_1 = '.\Vehicules\Valkyriz_accel.mat'; %<-- à modifier
-copyfile(Paramfile_1,'.\temp.mat');
-Paramfile_temp = '.\temp.mat';
+%- Attention à enregistrer le paramètre d'origine !!
+Paramfile = 'C:\Users\Bob\Documents\EPSA\Modeles-EPSA\01_Vehicle Dynamic\LapTime\Vehicules\Valkyriz_accel.mat'; %<-- à modifier
 
 %- Rentrer le path du track :
 trackfile = 'C:\Users\Bob\Documents\EPSA\Modeles-EPSA\01_Vehicle Dynamic\LapTime\Tracks\FSATA_track_elec.mat';
-m = matfile(Paramfile_temp,'Writable',true);
+m = matfile(Paramfile,'Writable',true);
 
 start = 2; %<-- à modifier
 step = 0.2; %<-- à modifier
@@ -30,25 +28,23 @@ for param=L
     % véhicule relié à la masse totale et à l ahauteur du COG) il faut
     % retaper la relation avec m. devant le nom des variables
     m.k_f = 1/param;  %<-- à modifier
-    [V,Gx,Gy,time,D,GGV] = LapTime(trackfile,Paramfile_temp,0);
-    [~,e,~,~] = get_Pelec(V*3.6,Gx,time,Paramfile_temp,24,0);
+    [V,Gx,Gy,time,D,GGV] = LapTime(trackfile,Paramfile,0);
+    [~,e,~,~] = get_Pelec(V*3.6,Gx,time,Paramfile,24,0);
     T = [T,time(end)];  
     E = [E,e];
     disp(length(T))
 end
 
-delete(Paramfile_temp)
-figure(1)
-
 figure(1)
 plot(L,T)
-yyaxis left
 % Changer les titres des axes et du graphique
 title('Etude de sensitivité du rapport de réduction')
-xlabel('rapport de réduction')
+xlabel('Rapport de réduction')
 ylabel('AutoX time (s)')
-hold on
-yyaxis right
+
+figure(2)
 plot(L,E/3600/1000)
 % Changer les titres des axes et du graphique
+title('Etude de sensitivité du rapport de réduction')
+xlabel('Rapport de réduction')
 ylabel("Energie utilisé sur l'autoX (kWh)")

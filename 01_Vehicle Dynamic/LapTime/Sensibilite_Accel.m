@@ -2,9 +2,11 @@
 addpath(genpath('.\subfunctions'))
 %- rentrez le path de votre fichier véhicule de base :
 
-Paramfile = 'C:\Users\Bob\Documents\EPSA\Modeles-EPSA\01_Vehicle Dynamic\LapTime\Vehicules\param_elec_peak.mat'; %<-- à modifier
+Paramfile_1 = '.\Vehicules\Valkyriz_accel.mat'; %<-- à modifier
+copyfile(Paramfile_1,'.\temp.mat');
+Paramfile_temp = '.\temp.mat';
 
-m = matfile(Paramfile,'Writable',true);
+m = matfile(Paramfile_temp,'Writable',true);
 
 start = 1; %<-- à modifier
 step = 0.5; %<-- à modifier
@@ -19,9 +21,11 @@ for param=L
     % véhicule relié à la masse totale et à l ahauteur du COG) il faut
     % retaper la relation avec de m. devant le nom des variables
     m.k_f = 1/param;  %<-- à modifier
-   [V_acc,Gx,time,t_acc] = Accelelec(75,Paramfile);
+   [V_acc,Gx,time] = Accelelec(75,Paramfile_temp);
    T = [T,time];
 end
+
+delete(Paramfile_temp)
 
 plot(L,T)
 % Changer les titres des axes et du graphique
