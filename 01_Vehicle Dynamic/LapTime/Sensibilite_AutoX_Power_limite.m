@@ -52,4 +52,4 @@ hold on
 yyaxis right
 plot(L/1000,E/3600/1000)
 % Changer les titres des axes et du graphique
-ylabel("Energie utilisé sur l'autoX (kWh)")
+ylabel("Energie utilisé sur l'endurance (kWh)")
