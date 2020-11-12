@@ -13,7 +13,9 @@ copyfile(Paramfile_1,'.\temp.mat');
 Paramfile_temp = '.\temp.mat';
 
 %- Rentrer le path du track :
-trackfile = 'C:\Users\Bob\Documents\EPSA\Modeles-EPSA\01_Vehicle Dynamic\LapTime\Tracks\FSATA_track_elec.mat';
+trackfile = '.\Tracks\FSATA_track_elec.mat';
+nb_de_tour = 24; %<-- à modifier
+
 m = matfile(Paramfile_temp,'Writable',true);
 
 start = 30000; %<-- à modifier
@@ -33,7 +35,7 @@ for param=L
     
     m.cmot = power_limit_torque(rmot,cmot,param,efficiency,eff_cont);  %<-- à modifier
     [V,Gx,Gy,time,D,GGV] = LapTime(trackfile,Paramfile_temp,0);
-    [~,e,~,~] = get_Pelec(V*3.6,Gx,time,Paramfile_temp,24,0);
+    [~,e,~,~] = get_Pelec(V*3.6,Gx,time,Paramfile_temp,nb_de_tour,0);
     T = [T,time(end)];  
     E = [E,e];
     disp(length(T))
