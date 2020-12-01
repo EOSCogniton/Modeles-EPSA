@@ -8,7 +8,7 @@ addpath(genpath('.\subfunctions'))
 
 %- Rentrez le path de votre fichier véhicule de base :
 %- Attention à enregistrer le paramètre d'origine !!
-Paramfile_1 = 'C:\Users\Bob\Documents\EPSA\Modeles-EPSA\01_Vehicle Dynamic\LapTime\Vehicules\Valkyriz_accel.mat'; %<-- à modifier
+Paramfile_1 = 'D:\Robin Niermaréchal\Documents\EPSA\03-GIT\Valkyriz\Modeles-EPSA\01_Vehicle Dynamic\LapTime\Vehicules\Valkyriz_AutoX.mat'; %<-- à modifier
 copyfile(Paramfile_1,'.\temp.mat');
 Paramfile_temp = '.\temp.mat';
 
@@ -18,9 +18,9 @@ nb_de_tour = 24; %<-- à modifier
 
 m = matfile(Paramfile_temp,'Writable',true);
 
-start = 30000; %<-- à modifier
-step = 10000; %<-- à modifier
-End = 80000; %<-- à modifier
+start = 10000; %<-- à modifier
+step = 5000; %<-- à modifier
+End = 50000; %<-- à modifier
 
 load(Paramfile_temp,'rmot','cmot','efficiency','eff_cont')
 L = start:step:End;
