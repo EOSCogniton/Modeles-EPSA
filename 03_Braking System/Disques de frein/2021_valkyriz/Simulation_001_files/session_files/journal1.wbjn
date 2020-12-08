@@ -1,0 +1,38 @@
+# encoding: utf-8
+# 2020 R1
+SetScriptVersion(Version="20.1.164")
+template1 = GetTemplate(
+    TemplateName="Steady-State Thermal",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+model1.Exit()
+model1.Edit()
+template2 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system2 = template2.CreateSystem(
+    Position="Right",
+    RelativeTo=system1)
+modelComponent2 = system2.GetComponent(Name="Model")
+modelComponent1.TransferData(TargetComponent=modelComponent2)
+modelComponent2.Refresh()
+modelComponent2.Refresh()
+system2.Delete()
+engineeringDataComponent1 = system1.GetComponent(Name="Engineering Data")
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+system3 = template2.CreateSystem(
+    ComponentsToShare=[engineeringDataComponent1, geometryComponent1, modelComponent1],
+    Position="Right",
+    RelativeTo=system1)
+solutionComponent1 = system1.GetComponent(Name="Solution")
+setupComponent1 = system3.GetComponent(Name="Setup")
+solutionComponent1.TransferData(TargetComponent=setupComponent1)
+solutionComponent1.TransferData(TargetComponent=setupComponent1)
+Save(Overwrite=True)
