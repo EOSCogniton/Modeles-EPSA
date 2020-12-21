@@ -699,15 +699,15 @@
       <container-type valType="String">Ansys.DesignModeler.Core.Addin:Geometry</container-type>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
-      <last-updated valType="Int64">2646</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5707, "Input": 2644, "Output": 2644}</last-modified-by-usage>
+      <last-updated valType="Int64">6067</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6505, "Input": 6065, "Output": 6065}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <unique-system-dir valType="String">SYS</unique-system-dir>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Geometry/Geometry:GeometryDataObject" Version="1.0">
         <class-type valType="String">Geometry</class-type>
         <object-name valType="String">GeometryDataObject</object-name>
-        <member-data valType="String">{"DisplayText": "GeometryDataObject", "_geometryFileRelativePath": r"dp0\SYS\DM\SYS.agdb", "_geometryTeamcenterConnection": None, "_geometryPlugInName": "", "GeomFileReference": $$fcbb6503-69a2-460f-aa0e-30bf259b5f77, "GeomRepositoryFileReference": None, "GeometryImportSolidBodies": True, "GeometryImportSurfaceBodies": True, "GeometryImportLineBodies": True, "GeometryImportParameters": "CADImportParameterType_Independent", "GeometryImportParametersFilter": "", "GeometryImportCadAttributes": True, "GeometryImportCadAttributesFilter": "", "GeometryImportNamedSelections": True, "GeometryImportNamedSelectionsFilter": "", "GeometryImportMaterialProperties": True, "GeometryImportAnalysisType": "AnalysisType_3D", "GeometryImportCadAssociativity": True, "GeometryImportCoordinateSystems": True, "GeometryImportCoordinateSystemsFilter": "", "GeometryImportWorkPoints": True, "GeometryImportSavePartFile": False, "GeometryImportImportUsingInstances": True, "GeometryImportSmartUpdate": True, "GeometryImportComparePartsOnUpdate": "ComparePartsMethod_None", "GeometryImportComparePartsTolerance": "ComparePartsTolerance_Tight", "GeometryImportProcessEnclosures": True, "GeometryImportDecomposeDisjointFaces": True, "GeometryImportMixedResolutionOption": "MixedImport_None", "GeometryImportWeightclass": "ImportWeightclass_Heavyweight", "GeometryImportFlattenAssembly": True, "GeometryImportCleanGeometryOnImport": False, "GeometryImportStitchSurfacesOnImport": "StitchPreference_None", "GeometryImportStitchTolerance": 1E-07, "GeometryImportSpaceClaimExplodeUnsharedComponents": True, "Guid": "59ad18db-ba4f-4e39-aa76-36bca35e965b", "ObjectState": 0, "UpstreamConnections": {}, "ImportedFeatures": {}, "IsSpaceClaimGeometry": False, "_isModelerModeEnabled": False, "AreParametersOutOfDate": False, "RegisteredExternalFilesInfo": {"$$884ed046-55ee-4dee-b97a-8baabd212137": {"FilePathInDM": r"D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\beringer_brake_disc\quarter_disc.igs", "FilePathAfterRepair": r"D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\beringer_brake_disc\quarter_disc.igs", "IsFileRepaired": False, "CadSourceType": "Iges"}, "$$fcbb6503-69a2-460f-aa0e-30bf259b5f77": {"FilePathInDM": r"C:\Users\Alvaro de Diego\AppData\Local\Temp\WB_LAPTOP-TG4TQLEP_Alvaro de Diego_18024_2\unsaved_project_files\dp0\SYS\DM\SYS.agdb", "FilePathAfterRepair": r"C:\Users\Alvaro de Diego\AppData\Local\Temp\WB_LAPTOP-TG4TQLEP_Alvaro de Diego_18024_2\unsaved_project_files\dp0\SYS\DM\SYS.agdb", "IsFileRepaired": False, "CadSourceType": "DesignModeler"}}, "AreParametersMigratedFromLegacyDatabaseImport": False}</member-data>
+        <member-data valType="String">{"DisplayText": "GeometryDataObject", "_geometryFileRelativePath": r"dp0\SYS\DM\SYS.agdb", "_geometryTeamcenterConnection": None, "_geometryPlugInName": "", "GeomFileReference": $$fcbb6503-69a2-460f-aa0e-30bf259b5f77, "GeomRepositoryFileReference": None, "GeometryImportSolidBodies": True, "GeometryImportSurfaceBodies": True, "GeometryImportLineBodies": True, "GeometryImportParameters": "CADImportParameterType_Independent", "GeometryImportParametersFilter": "", "GeometryImportCadAttributes": True, "GeometryImportCadAttributesFilter": "", "GeometryImportNamedSelections": True, "GeometryImportNamedSelectionsFilter": "", "GeometryImportMaterialProperties": True, "GeometryImportAnalysisType": "AnalysisType_3D", "GeometryImportCadAssociativity": True, "GeometryImportCoordinateSystems": True, "GeometryImportCoordinateSystemsFilter": "", "GeometryImportWorkPoints": True, "GeometryImportSavePartFile": False, "GeometryImportImportUsingInstances": True, "GeometryImportSmartUpdate": True, "GeometryImportComparePartsOnUpdate": "ComparePartsMethod_None", "GeometryImportComparePartsTolerance": "ComparePartsTolerance_Tight", "GeometryImportProcessEnclosures": True, "GeometryImportDecomposeDisjointFaces": True, "GeometryImportMixedResolutionOption": "MixedImport_None", "GeometryImportWeightclass": "ImportWeightclass_Heavyweight", "GeometryImportFlattenAssembly": True, "GeometryImportCleanGeometryOnImport": False, "GeometryImportStitchSurfacesOnImport": "StitchPreference_None", "GeometryImportStitchTolerance": 1E-07, "GeometryImportSpaceClaimExplodeUnsharedComponents": True, "Guid": "59ad18db-ba4f-4e39-aa76-36bca35e965b", "ObjectState": 0, "UpstreamConnections": {}, "ImportedFeatures": {}, "IsSpaceClaimGeometry": False, "_isModelerModeEnabled": False, "AreParametersOutOfDate": False, "RegisteredExternalFilesInfo": {"$$fcbb6503-69a2-460f-aa0e-30bf259b5f77": {"FilePathInDM": r"D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\Simulation_001_files\dp0\SYS\DM\SYS.agdb", "FilePathAfterRepair": r"D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\Simulation_001_files\dp0\SYS\DM\SYS.agdb", "IsFileRepaired": False, "CadSourceType": "DesignModeler"}, "$$612ae9f4-d24b-44ad-9723-acd7a5657b56": {"FilePathInDM": r"D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\SBR_002_quart_disc_beringer.igs", "FilePathAfterRepair": r"D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\SBR_002_quart_disc_beringer.igs", "IsFileRepaired": False, "CadSourceType": "Iges"}}, "AreParametersMigratedFromLegacyDatabaseImport": False}</member-data>
         <properties-setByUserFlag-data valType="String">["ObjectState"]</properties-setByUserFlag-data>
       </Object>
       <Object Name="/Geometry/SimulationGeneratedMesh:MeshFileObject" Version="1.0">
@@ -725,10 +725,10 @@
       <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationModel</container-type>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
-      <last-updated valType="Int64">4807</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5650, "Input": 3778, "Output": 3778}</last-modified-by-usage>
+      <last-updated valType="Int64">6113</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6103, "Input": 6103, "Output": 6103}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
-      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 2646, "Model": 2835, "Setup": 4772, "Solution": 4773, "Results": 4774, "Setup 1": 4789, "Solution 1": 4790, "Results 1": 4796}</last-update-regen-times>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 6067, "Model": 4807, "Setup": 5684, "Solution": 5685, "Results": 5686, "Setup 1": 5694, "Solution 1": 5695, "Results 1": 5702, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
       <unique-system-dir valType="String">SYS</unique-system-dir>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Model/SimulationConnection:SimulationConnection" Version="1.0">
@@ -827,10 +827,10 @@
       <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationSetup</container-type>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
-      <last-updated valType="Int64">5684</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5680, "Input": 5680, "Output": 5680}</last-modified-by-usage>
+      <last-updated valType="Int64">6478</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6474, "Input": 6474, "Output": 6474}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
-      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 2646, "Model": 4807, "Setup": 5669, "Solution": 5670, "Results": 5671, "Setup 1": 5311, "Solution 1": 5319, "Results 1": 5328, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 6067, "Model": 6113, "Setup": 6463, "Solution": 6464, "Results": 6465, "Setup 1": 6424, "Solution 1": 6425, "Results 1": 6426, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
       <unique-system-dir valType="String">SYS</unique-system-dir>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Setup/MechanicalSystemType:SystemClass for Thermal|SteadyState|ANSYS" Version="1.0">
@@ -886,10 +886,10 @@
       <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationSolution</container-type>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
-      <last-updated valType="Int64">5685</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5681, "Input": 5681, "Output": 5681}</last-modified-by-usage>
+      <last-updated valType="Int64">6479</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6475, "Input": 6475, "Output": 6475}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
-      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 2646, "Model": 4807, "Setup": 5684, "Solution": 5670, "Results": 5671, "Setup 1": 5311, "Solution 1": 5319, "Results 1": 5328, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 6067, "Model": 6113, "Setup": 6478, "Solution": 6464, "Results": 6465, "Setup 1": 6424, "Solution 1": 6425, "Results 1": 6426, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
       <unique-system-dir valType="String">SYS</unique-system-dir>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Solution/MechanicalSystemType:SystemClass for Thermal|SteadyState|ANSYS" Version="1.0">
@@ -955,10 +955,10 @@
       <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationResults</container-type>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
-      <last-updated valType="Int64">5686</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5683, "Input": 5683, "Output": 5683}</last-modified-by-usage>
+      <last-updated valType="Int64">6480</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6477, "Input": 6477, "Output": 6477}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
-      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 2646, "Model": 4807, "Setup": 5684, "Solution": 5685, "Results": 5671, "Setup 1": 5311, "Solution 1": 5319, "Results 1": 5328, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 6067, "Model": 6113, "Setup": 6478, "Solution": 6479, "Results": 6465, "Setup 1": 6424, "Solution 1": 6425, "Results 1": 6426, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
       <unique-system-dir valType="String">SYS</unique-system-dir>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Results/MechanicalSystemType:SystemClass for Thermal|SteadyState|ANSYS" Version="1.0">
@@ -1003,10 +1003,10 @@
       <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationSetup</container-type>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
-      <last-updated valType="Int64">5694</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5690, "Input": 5690, "Output": 5690}</last-modified-by-usage>
+      <last-updated valType="Int64">6488</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6484, "Input": 6484, "Output": 6484}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
-      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 2646, "Model": 4807, "Setup": 5684, "Solution": 5685, "Results": 5686, "Setup 1": 5311, "Solution 1": 5319, "Results 1": 5328, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 6067, "Model": 6113, "Setup": 6478, "Solution": 6479, "Results": 6480, "Setup 1": 6424, "Solution 1": 6425, "Results 1": 6426, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
       <unique-system-dir valType="String">SYS-1</unique-system-dir>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Setup 1/MechanicalSystemType:SystemClass for Structural|Static|ANSYS" Version="1.0">
@@ -1062,10 +1062,10 @@
       <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationSolution</container-type>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
-      <last-updated valType="Int64">5695</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5691, "Input": 5691, "Output": 5691}</last-modified-by-usage>
+      <last-updated valType="Int64">6489</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6485, "Input": 6485, "Output": 6485}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
-      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 2646, "Model": 4807, "Setup": 5684, "Solution": 5685, "Results": 5686, "Setup 1": 5694, "Solution 1": 5319, "Results 1": 5328, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 6067, "Model": 6113, "Setup": 6478, "Solution": 6479, "Results": 6480, "Setup 1": 6488, "Solution 1": 6425, "Results 1": 6426, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
       <unique-system-dir valType="String">SYS-1</unique-system-dir>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Solution 1/MechanicalSystemType:SystemClass for Structural|Static|ANSYS" Version="1.0">
@@ -1131,10 +1131,10 @@
       <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationResults</container-type>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
-      <last-updated valType="Int64">5702</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5700, "Input": 5700, "Output": 5700}</last-modified-by-usage>
+      <last-updated valType="Int64">6500</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6499, "Input": 6499, "Output": 6499}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
-      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 2646, "Model": 4807, "Setup": 5684, "Solution": 5685, "Results": 5686, "Setup 1": 5694, "Solution 1": 5695, "Results 1": 5696, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Scopes": 0, "Engineering Data": 2786, "Geometry": 6067, "Model": 6113, "Setup": 6478, "Solution": 6479, "Results": 6480, "Setup 1": 6488, "Solution 1": 6489, "Results 1": 6490, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
       <unique-system-dir valType="String">SYS-1</unique-system-dir>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Results 1/MechanicalSystemType:SystemClass for Structural|Static|ANSYS" Version="1.0">

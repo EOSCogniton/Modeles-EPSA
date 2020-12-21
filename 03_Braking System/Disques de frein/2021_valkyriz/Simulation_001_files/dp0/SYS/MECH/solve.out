@@ -74,13 +74,13 @@
        2 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
     TOTAL OF     2 CORES REQUESTED
   DESIGNXPLORER REQUESTED
-  INPUT FILE NAME              = D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\_ProjectScratch\ScrCA46\dummy.dat
-  OUTPUT FILE NAME             = D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\_ProjectScratch\ScrCA46\solve.out
+  INPUT FILE NAME              = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\ScrFD5D\dummy.dat
+  OUTPUT FILE NAME             = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\ScrFD5D\solve.out
   START-UP FILE MODE           = NOREAD
   STOP FILE MODE               = NOREAD
 
  RELEASE= 2020 R1              BUILD= 20.1      UP20191203   VERSION=WINDOWS x64 
- CURRENT JOBNAME=file0  10:52:05  DEC 07, 2020 CP=      0.188
+ CURRENT JOBNAME=file0  20:20:06  DEC 08, 2020 CP=      0.203
 
 
  PARAMETER _DS_PROGRESS =     999.0000000    
@@ -89,30 +89,30 @@
 
 
 
- *** NOTE ***                            CP =       0.266   TIME= 10:52:05
+ *** NOTE ***                            CP =       0.281   TIME= 20:20:06
  The /CONFIG,NOELDB command is not valid in a Distributed ANSYS          
  solution.  Command is ignored.                                          
 
- *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  10.8680556    
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  20.3350000    
 
  TITLE= 
- bbb--Steady-State Thermal (A5)                                                
+ Simulation_001--Steady-State Thermal (A5)                                     
 
 
  SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_PROJECTSCRATCH_DIR(1) = D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\_ProjectScratch\ScrCA46\
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\ScrFD5D\
 
  SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_SOLVERFILES_DIR(1) = D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\bbb_files\dp0\SYS\MECH\
+ PARAMETER _WB_SOLVERFILES_DIR(1) = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\Simulation_001_files\dp0\SYS\MECH\
 
  SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_USERFILES_DIR(1) = D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\bbb_files\user_files\
+ PARAMETER _WB_USERFILES_DIR(1) = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\Simulation_001_files\user_files\
  --- Data in consistent MKS units. See Solving Units in the help system for more
 
  MKS UNITS SPECIFIED FOR INTERNAL    
@@ -140,9 +140,9 @@
  *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 2020 R1          20.1     ***
  DISTRIBUTED ANSYS Academic Teaching Introductory              
 
- 01055371  VERSION=WINDOWS x64   10:52:05  DEC 07, 2020 CP=      0.266
+ 01055371  VERSION=WINDOWS x64   20:20:06  DEC 08, 2020 CP=      0.281
 
- bbb--Steady-State Thermal (A5)                                                
+ Simulation_001--Steady-State Thermal (A5)                                     
 
 
 
@@ -161,18 +161,18 @@
  ***************** Define Uniform Initial temperature ***************
 
 
- ***** ROUTINE COMPLETED *****  CP =         0.391
+ ***** ROUTINE COMPLETED *****  CP =         0.469
 
 
- --- Number of total nodes = 20526
- --- Number of contact elements = 8093
+ --- Number of total nodes = 31901
+ --- Number of contact elements = 10999
  --- Number of spring elements = 0
  --- Number of bearing elements = 0
- --- Number of solid elements = 3648
+ --- Number of solid elements = 5871
  --- Number of condensed parts = 0
- --- Number of total elements = 11741
+ --- Number of total elements = 16870
 
- *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  10.8680556    
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  20.3350000    
  ****************************************************************************
  *************************    SOLUTION       ********************************
  ****************************************************************************
@@ -196,52 +196,52 @@
  SELECT       FOR ITEM=TYPE COMPONENT=    
   IN RANGE         5 TO          5 STEP          1
 
-       1036  ELEMENTS (OF      11741  DEFINED) SELECTED BY  ESEL  COMMAND.
+       3456  ELEMENTS (OF      16870  DEFINED) SELECTED BY  ESEL  COMMAND.
 
  SELECT      ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
 
-       3434 NODES (OF      20526  DEFINED) SELECTED FROM
-     1036 SELECTED ELEMENTS BY NSLE COMMAND.
+      10866 NODES (OF      31901  DEFINED) SELECTED FROM
+     3456 SELECTED ELEMENTS BY NSLE COMMAND.
 
  GENERATE SURFACE LOAD HFLU ON SURFACE DEFINED BY ALL SELECTED NODES
- VALUE =   44510.0000    
+ VALUE =   13400.0000    
 
- NUMBER OF HFLU ELEMENT FACE LOADS STORED =       1036
+ NUMBER OF HFLU ELEMENT FACE LOADS STORED =       3456
 
  ALL SELECT   FOR ITEM=NODE COMPONENT=    
-  IN RANGE         1 TO      20526 STEP          1
+  IN RANGE         1 TO      31901 STEP          1
 
-      20526  NODES (OF      20526  DEFINED) SELECTED BY NSEL  COMMAND.
+      31901  NODES (OF      31901  DEFINED) SELECTED BY NSEL  COMMAND.
 
  ALL SELECT   FOR ITEM=ELEM COMPONENT=    
-  IN RANGE         1 TO      15434 STEP          1
+  IN RANGE         1 TO      22171 STEP          1
 
-      11741  ELEMENTS (OF      11741  DEFINED) SELECTED BY  ESEL  COMMAND.
+      16870  ELEMENTS (OF      16870  DEFINED) SELECTED BY  ESEL  COMMAND.
 
  SELECT       FOR ITEM=TYPE COMPONENT=    
   IN RANGE         6 TO          6 STEP          1
 
-       3089  ELEMENTS (OF      11741  DEFINED) SELECTED BY  ESEL  COMMAND.
+       1736  ELEMENTS (OF      16870  DEFINED) SELECTED BY  ESEL  COMMAND.
 
  SELECT      ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
 
-       9679 NODES (OF      20526  DEFINED) SELECTED FROM
-     3089 SELECTED ELEMENTS BY NSLE COMMAND.
+       5670 NODES (OF      31901  DEFINED) SELECTED FROM
+     1736 SELECTED ELEMENTS BY NSLE COMMAND.
 
  GENERATE SURFACE LOAD CONV ON SURFACE DEFINED BY ALL SELECTED NODES
- VALUES=  133.700000      20.0000000    
+ VALUES=  140.800000      20.0000000    
 
- NUMBER OF CONV ELEMENT FACE LOADS STORED =       3089
+ NUMBER OF CONV ELEMENT FACE LOADS STORED =       1736
 
  ALL SELECT   FOR ITEM=NODE COMPONENT=    
-  IN RANGE         1 TO      20526 STEP          1
+  IN RANGE         1 TO      31901 STEP          1
 
-      20526  NODES (OF      20526  DEFINED) SELECTED BY NSEL  COMMAND.
+      31901  NODES (OF      31901  DEFINED) SELECTED BY NSEL  COMMAND.
 
  ALL SELECT   FOR ITEM=ELEM COMPONENT=    
-  IN RANGE         1 TO      15434 STEP          1
+  IN RANGE         1 TO      22171 STEP          1
 
-      11741  ELEMENTS (OF      11741  DEFINED) SELECTED BY  ESEL  COMMAND.
+      16870  ELEMENTS (OF      16870  DEFINED) SELECTED BY  ESEL  COMMAND.
 
  SPECIFIED CONSTRAINT TEMP FOR PICKED NODES 
  REAL=  20.0000000       IMAG=  0.00000000    
@@ -295,28 +295,30 @@
 
  *ENDIF
 
- *** NOTE ***                            CP =       0.422   TIME= 10:52:05
+ *** NOTE ***                            CP =       0.500   TIME= 20:20:06
  The automatic domain decomposition logic has selected the MESH domain   
  decomposition method with 2 processes per solution.                     
 
  *****  ANSYS SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =       0.422   TIME= 10:52:05
+ *** WARNING ***                         CP =       0.531   TIME= 20:20:06
  Element shape checking is currently inactive.  Issue SHPP,ON or         
  SHPP,WARN to reactivate, if desired.                                    
 
- *** NOTE ***                            CP =       0.453   TIME= 10:52:05
+ *** NOTE ***                            CP =       0.531   TIME= 20:20:06
  The model data was checked and warning messages were found.             
   Please review output or errors file (                                  
- D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\_ProjectScratch 
- h\ScrCA46\file0.err ) for these warning messages.                       
+ D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-E 
+ PSA\Modeles-EPSA\03_Braking System\Disques de                           
+ frein\2021_valkyriz\_ProjectScratch\ScrFD5D\file0.err ) for these       
+ warning messages.                                                       
 
  *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 2020 R1          20.1     ***
  DISTRIBUTED ANSYS Academic Teaching Introductory              
 
- 01055371  VERSION=WINDOWS x64   10:52:05  DEC 07, 2020 CP=      0.453
+ 01055371  VERSION=WINDOWS x64   20:20:06  DEC 08, 2020 CP=      0.531
 
- bbb--Steady-State Thermal (A5)                                                
+ Simulation_001--Steady-State Thermal (A5)                                     
 
 
 
@@ -329,15 +331,15 @@
    NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN   
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
 
- *** NOTE ***                            CP =       0.453   TIME= 10:52:05
+ *** NOTE ***                            CP =       0.562   TIME= 20:20:06
  This nonlinear analysis defaults to using the full Newton-Raphson       
  solution procedure.  This can be modified using the NROPT command.      
 
- *** NOTE ***                            CP =       0.453   TIME= 10:52:05
+ *** NOTE ***                            CP =       0.562   TIME= 20:20:06
  The conditions for direct assembly have been met.  No .emat or .erot    
  files will be produced.                                                 
 
- *** NOTE ***                            CP =       0.547   TIME= 10:52:05
+ *** NOTE ***                            CP =       0.688   TIME= 20:20:07
  Symmetric Deformable- deformable contact pair identified by real        
  constant set 3 and contact element type 3 has been set up.  The         
  companion pair has real constant set ID 4.  Both pairs should have the  
@@ -352,22 +354,22 @@
   for near field contact.
  Small sliding logic is assumed
  Contact detection at: Gauss integration point
- Average contact surface length               0.26837E-02
- Average contact pair depth                   0.29130E-02
+ Average contact surface length               0.14592E-02
+ Average contact pair depth                   0.14852E-02
  Default pinball region factor PINB           0.25000    
- The resulting pinball region                 0.72825E-03
+ The resulting pinball region                 0.37131E-03
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
- Thermal contact conductance coef. TCC        0.62815E+06
+ Thermal contact conductance coef. TCC        0.92811E+06
  Heat radiation is excluded.
 
- *** NOTE ***                            CP =       0.547   TIME= 10:52:05
- Max.  Initial penetration 8.826187905E-11 was detected between contact  
- element 7685 and target element 8105.                                   
+ *** NOTE ***                            CP =       0.688   TIME= 20:20:07
+ Max.  Initial penetration 1.478926373E-11 was detected between contact  
+ element 11782 and target element 12369.                                 
  ****************************************
   
 
- *** NOTE ***                            CP =       0.547   TIME= 10:52:05
+ *** NOTE ***                            CP =       0.688   TIME= 20:20:07
  Symmetric Deformable- deformable contact pair identified by real        
  constant set 4 and contact element type 3 has been set up.  The         
  companion pair has real constant set ID 3.  Both pairs should have the  
@@ -382,18 +384,18 @@
   for near field contact.
  Small sliding logic is assumed
  Contact detection at: Gauss integration point
- Average contact surface length               0.27354E-02
- Average contact pair depth                   0.29049E-02
+ Average contact surface length               0.14950E-02
+ Average contact pair depth                   0.12845E-02
  Default pinball region factor PINB           0.25000    
- The resulting pinball region                 0.72622E-03
+ The resulting pinball region                 0.32114E-03
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
- Thermal contact conductance coef. TCC        0.62815E+06
+ Thermal contact conductance coef. TCC        0.92811E+06
  Heat radiation is excluded.
 
- *** NOTE ***                            CP =       0.547   TIME= 10:52:05
- Max.  Initial penetration 4.865894501E-11 was detected between contact  
- element 7883 and target element 7448.                                   
+ *** NOTE ***                            CP =       0.688   TIME= 20:20:07
+ Max.  Initial penetration 2.072137256E-12 was detected between contact  
+ element 11829 and target element 11182.                                 
  ****************************************
   
   
@@ -403,10 +405,10 @@
   
      D I S T R I B U T E D   D O M A I N   D E C O M P O S E R
   
-  ...Number of elements: 11741
-  ...Number of nodes:    20526
+  ...Number of elements: 16870
+  ...Number of nodes:    31901
   ...Decompose to 2 CPU domains
-  ...Element load balance ratio =     1.116
+  ...Element load balance ratio =     1.092
 
 
                       L O A D   S T E P   O P T I O N S
@@ -445,126 +447,127 @@
 
   CALCULATIONS ASSUME ELEMENT MASS AT ELEMENT CENTROID
 
-  TOTAL MASS =  0.63038    
+  TOTAL MASS =  0.14939    
 
                            MOM. OF INERTIA         MOM. OF INERTIA
   CENTER OF MASS            ABOUT ORIGIN        ABOUT CENTER OF MASS
 
-  XC = -0.53096E-03      IXX =   0.7177E-02      IXX =   0.5745E-03
-  YC = -0.10227          IYY =   0.1493E-02      IYY =   0.1483E-02
-  ZC =  0.40000E-02      IZZ =   0.8644E-02      IZZ =   0.2051E-02
-                         IXY =  -0.5676E-04      IXY =  -0.2253E-04
-                         IYZ =   0.2579E-03      IYZ =   0.1784E-11
-                         IZX =   0.1339E-05      IZX =   0.7978E-12
+  XC =  0.65101E-01      IXX =   0.7832E-03      IXX =   0.1553E-03
+  YC = -0.64796E-01      IYY =   0.7832E-03      IYY =   0.1494E-03
+  ZC =  0.22500E-02      IZZ =   0.1565E-02      IZZ =   0.3042E-03
+                         IXY =   0.4979E-03      IXY =  -0.1322E-03
+                         IYZ =   0.2178E-04      IYZ =   0.7986E-13
+                         IZX =  -0.2188E-04      IZX =   0.1156E-12
 
 
   *** MASS SUMMARY BY ELEMENT TYPE ***
 
   TYPE      MASS
-     1  0.273253    
-     2  0.357130    
+     1  0.133422    
+     2  0.159653E-01
 
  Range of element maximum matrix coefficients in global coordinates
- Maximum = 1.22849606 at element 7573.                                   
- Minimum = 4.317775367E-06 at element 13792.                             
+ Maximum = 0.504631246 at element 11667.                                 
+ Minimum = 4.030975334E-06 at element 19323.                             
 
    *** ELEMENT MATRIX FORMULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1      1554  SOLID90       0.062   0.000040
-        2      2094  SOLID90       0.156   0.000075
-        3       429  CONTA174      0.031   0.000073
-        4       429  TARGE170      0.000   0.000000
-        5      1036  SURF152       0.000   0.000000
-        6      3089  SURF152       0.047   0.000015
-        7      3110  SURF152       0.000   0.000000
- Time at end of element matrix formulation CP = 1.109375.                
-     HT FLOW CONVERGENCE VALUE=   11.22      CRITERION=  0.1267E-01
+        1      5184  SOLID90       0.172   0.000033
+        2       687  SOLID90       0.016   0.000023
+        3       615  CONTA174      0.000   0.000000
+        4       615  TARGE170      0.000   0.000000
+        5      3456  SURF152       0.078   0.000023
+        6      1736  SURF152       0.031   0.000018
+        7      4577  SURF152       0.062   0.000014
+ Time at end of element matrix formulation CP = 1.453125.                
+     HT FLOW CONVERGENCE VALUE=   1.727      CRITERION=  0.1738E-02
 
  DISTRIBUTED SPARSE MATRIX DIRECT SOLVER.
-  Number of equations =       20524,    Maximum wavefront =     73
+  Number of equations =       31899,    Maximum wavefront =     67
 
-  Local memory allocated for solver              =     37.215 MB
-  Local memory required for in-core solution     =     25.534 MB
-  Local memory required for out-of-core solution =     11.683 MB
+  Local memory allocated for solver              =     52.739 MB
+  Local memory required for in-core solution     =     43.330 MB
+  Local memory required for out-of-core solution =     18.267 MB
 
-  Total memory allocated for solver              =     71.607 MB
-  Total memory required for in-core solution     =     48.638 MB
-  Total memory required for out-of-core solution =     23.325 MB
+  Total memory allocated for solver              =    104.734 MB
+  Total memory required for in-core solution     =     85.964 MB
+  Total memory required for out-of-core solution =     36.751 MB
 
- *** NOTE ***                            CP =       1.328   TIME= 10:52:05
+ *** NOTE ***                            CP =       1.781   TIME= 20:20:07
  The Distributed Sparse Matrix Solver is currently running in the        
  in-core memory mode.  This memory mode uses the most amount of memory   
  in order to avoid using the hard drive as much as possible, which most  
  often results in the fastest solution time.  This mode is recommended   
  if enough physical memory is present to accommodate all of the solver   
  data.                                                                   
- Distributed sparse solver maximum pivot= 1.44115844 at node 8521 TEMP.  
- Distributed sparse solver minimum pivot= 8.502994784E-03 at node 11375  
+ Distributed sparse solver maximum pivot= 0.656481145 at node 31661      
+ TEMP.                                                                   
+ Distributed sparse solver minimum pivot= 1.042731535E-02 at node 28007  
  TEMP.                                                                   
  Distributed sparse solver minimum pivot in absolute value=              
- 8.502994784E-03 at node 11375 TEMP.                                     
-    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=   174.3    
-     HT FLOW CONVERGENCE VALUE=  0.3306      CRITERION=  0.3280E-01
-    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  -6.360    
-     HT FLOW CONVERGENCE VALUE=  0.7102E-03  CRITERION=  0.3129E-01 <<< CONVERGED
+ 1.042731535E-02 at node 28007 TEMP.                                     
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=   214.4    
+     HT FLOW CONVERGENCE VALUE=  0.2271      CRITERION=  0.2667E-01
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  -24.99    
+     HT FLOW CONVERGENCE VALUE=  0.5205E-02  CRITERION=  0.2184E-01 <<< CONVERGED
     >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   2
 
    *** ELEMENT RESULT CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1      1554  SOLID90       0.000   0.000000
-        2      2094  SOLID90       0.031   0.000015
-        3       429  CONTA174      0.000   0.000000
-        5      1036  SURF152       0.000   0.000000
-        6      3089  SURF152       0.000   0.000000
-        7      3110  SURF152       0.078   0.000025
+        1      5184  SOLID90       0.016   0.000003
+        2       687  SOLID90       0.000   0.000000
+        3       615  CONTA174      0.000   0.000000
+        5      3456  SURF152       0.016   0.000005
+        6      1736  SURF152       0.016   0.000009
+        7      4577  SURF152       0.109   0.000024
 
    *** NODAL LOAD CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1      1554  SOLID90       0.016   0.000010
-        2      2094  SOLID90       0.031   0.000015
-        3       429  CONTA174      0.000   0.000000
-        5      1036  SURF152       0.000   0.000000
-        6      3089  SURF152       0.000   0.000000
-        7      3110  SURF152       0.031   0.000010
+        1      5184  SOLID90       0.062   0.000012
+        2       687  SOLID90       0.016   0.000023
+        3       615  CONTA174      0.000   0.000000
+        5      3456  SURF152       0.016   0.000005
+        6      1736  SURF152       0.031   0.000018
+        7      4577  SURF152       0.000   0.000000
  *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      2
  *** TIME =   1.00000         TIME INC =   1.00000    
 
 
  *** ANSYS BINARY FILE STATISTICS
   BUFFER SIZE USED= 16384
-        0.688 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
-        4.500 MB WRITTEN ON ASSEMBLED MATRIX FILE: file0.full
-        2.688 MB WRITTEN ON RESULTS FILE: file0.rth
+        1.062 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
+        7.000 MB WRITTEN ON ASSEMBLED MATRIX FILE: file0.full
+        3.750 MB WRITTEN ON RESULTS FILE: file0.rth
  *************** Write FE CONNECTORS *********
 
  WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce                                                                                                                                                                                                                                                             
  ****************************************************
  *************** FINISHED SOLVE FOR LS 1 *************
 
- *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  10.8683333    
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  20.3355556    
 
  FINISH SOLUTION PROCESSING
 
 
- ***** ROUTINE COMPLETED *****  CP =         1.891
+ ***** ROUTINE COMPLETED *****  CP =         2.625
 
 
 
  *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 2020 R1          20.1     ***
  DISTRIBUTED ANSYS Academic Teaching Introductory              
 
- 01055371  VERSION=WINDOWS x64   10:52:06  DEC 07, 2020 CP=      1.891
+ 01055371  VERSION=WINDOWS x64   20:20:08  DEC 08, 2020 CP=      2.625
 
- bbb--Steady-State Thermal (A5)                                                
+ Simulation_001--Steady-State Thermal (A5)                                     
 
 
 
           ***** ANSYS RESULTS INTERPRETATION (POST1) *****
 
- *** NOTE ***                            CP =       1.891   TIME= 10:52:06
+ *** NOTE ***                            CP =       2.625   TIME= 20:20:08
  Reading results into the database (SET command) will update the current 
  displacement and force boundary conditions in the database with the     
  values from the results file for that load set.  Note that any          
@@ -582,29 +585,29 @@
  EXIT THE ANSYS POST1 DATABASE PROCESSOR
 
 
- ***** ROUTINE COMPLETED *****  CP =         1.891
+ ***** ROUTINE COMPLETED *****  CP =         2.625
 
 
 
  PRINTOUT RESUMED BY /GOP
 
- *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  10.8683333    
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  20.3355556    
 
  PARAMETER _PREPTIME =     0.000000000    
 
- PARAMETER _SOLVTIME =     1.000000000    
+ PARAMETER _SOLVTIME =     2.000000000    
 
  PARAMETER _POSTTIME =     0.000000000    
 
- PARAMETER _TOTALTIM =     1.000000000    
+ PARAMETER _TOTALTIM =     2.000000000    
 
- *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.11573014    
+ *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.09242461    
 
- *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.350333000E-01
- --- Number of total nodes = 20526
- --- Number of total elements = 11741
- --- Element load balance ratio = 1.11573014
- --- Time to combine distributed files = 3.50333E-02
+ *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.476891000E-01
+ --- Number of total nodes = 31901
+ --- Number of total elements = 16870
+ --- Element load balance ratio = 1.09242461
+ --- Time to combine distributed files = 4.76891E-02
 
  EXIT ANSYS WITHOUT SAVING DATABASE
 
@@ -615,7 +618,7 @@
 +--------- D I S T R I B U T E D   A N S Y S   S T A T I S T I C S ------------+
 
 Release: 2020 R1            Build: 20.1       Update: UP20191203   Platform: WINDOWS x64 
-Date Run: 12/07/2020   Time: 10:52     Process ID: 14200
+Date Run: 12/08/2020   Time: 20:20     Process ID: 1340
 Operating System: Windows 10  (Build: 18363)
 
 Processor Model: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
@@ -641,27 +644,28 @@ Input File: dummy.dat
 
   Core                Machine Name   Working Directory
  -----------------------------------------------------
-     0             LAPTOP-TG4TQLEP   D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\_ProjectScratch\ScrCA46
-     1             LAPTOP-TG4TQLEP   D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\_ProjectScratch\ScrCA46
+     0             LAPTOP-TG4TQLEP   D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\ScrFD5D
+     1             LAPTOP-TG4TQLEP   D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\ScrFD5D
  
-Latency time from master to core     1 =    1.624 microseconds
+Latency time from master to core     1 =    1.626 microseconds
  
-Communication speed from master to core     1 =  6339.14 MB/sec
+Communication speed from master to core     1 =  5552.82 MB/sec
 
-Total CPU time for main thread                    :        1.6 seconds
-Total CPU time summed for all threads             :        2.2 seconds
+Total CPU time for main thread                    :        2.2 seconds
+Total CPU time summed for all threads             :        2.9 seconds
 
 Elapsed time spent obtaining a license            :        0.7 seconds
 Elapsed time spent pre-processing model (/PREP7)  :        0.1 seconds
-Elapsed time spent solution - preprocessing       :        0.1 seconds
-Elapsed time spent computing solution             :        1.0 seconds
+Elapsed time spent solution - preprocessing       :        0.2 seconds
+Elapsed time spent computing solution             :        1.5 seconds
 Elapsed time spent solution - postprocessing      :        0.0 seconds
 Elapsed time spent post-processing model (/POST1) :        0.0 seconds
  
 Equation solver used                              :            Sparse (symmetric)
-Equation solver computational rate                :       19.4 Gflops
+Equation solver computational rate                :       28.4 Gflops
+Equation solver effective I/O rate                :       13.5 GB/sec
 
-Maximum total memory used                         :      331.0 MB
+Maximum total memory used                         :      372.0 MB
 Maximum total memory allocated                    :     3136.0 MB
 Total physical memory available                   :         16 GB
 
@@ -682,11 +686,11 @@ Total amount of I/O read from disk                :        0.0 GB
  |---------------------------------------------------------------------------|
  |                                                                           |
  | Database Requested(-db)  1024 MB    Scratch Memory Requested      1024 MB |
- | Maximum Database Used      16 MB    Maximum Scratch Memory Used    156 MB |
+ | Maximum Database Used      23 MB    Maximum Scratch Memory Used    172 MB |
  |                                                                           |
  |---------------------------------------------------------------------------|
  |                                                                           |
- |        CP Time      (sec) =          2.172       Time  =  10:52:06        |
- |        Elapsed Time (sec) =          4.000       Date  =  12/07/2020      |
+ |        CP Time      (sec) =          2.891       Time  =  20:20:09        |
+ |        Elapsed Time (sec) =          5.000       Date  =  12/08/2020      |
  |                                                                           |
  *---------------------------------------------------------------------------*

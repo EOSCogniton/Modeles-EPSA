@@ -2,16 +2,17 @@
 <Storage>
   <Project Version="9.1">
     <base-designpoint-name valType="String">0</base-designpoint-name>
-    <timestamp-max valType="Int64">5707</timestamp-max>
+    <timestamp-max valType="Int64">6505</timestamp-max>
     <framework-build-version valType="String">20.1.164.0</framework-build-version>
     <external-version-string valType="String">2020 R1</external-version-string>
-    <last-saved-utc valType="String">12/07/2020 10:11:58</last-saved-utc>
+    <last-saved-utc valType="String">12/08/2020 21:01:26</last-saved-utc>
     <managed-categories valType="String">[report, misc, progress]</managed-categories>
     <logHistory valType="StringArray">
       <ArrayEntry Index="0">Alvaro de Diego@LAPTOP-TG4TQLEP:C:\Users\Alvaro de Diego\AppData\Local\Temp\WorkbenchLogs\CoreEvents18024.log</ArrayEntry>
       <ArrayEntry Index="1">Alvaro de Diego@LAPTOP-TG4TQLEP:C:\Users\Alvaro de Diego\AppData\Local\Temp\WorkbenchLogs\CoreEvents3320.log</ArrayEntry>
       <ArrayEntry Index="2">Alvaro de Diego@LAPTOP-TG4TQLEP:C:\Users\Alvaro de Diego\AppData\Local\Temp\WorkbenchLogs\CoreEvents8344.log</ArrayEntry>
       <ArrayEntry Index="3">Alvaro de Diego@LAPTOP-TG4TQLEP:C:\Users\Alvaro de Diego\AppData\Local\Temp\WorkbenchLogs\CoreEvents8412.log</ArrayEntry>
+      <ArrayEntry Index="4">Alvaro de Diego@LAPTOP-TG4TQLEP:C:\Users\Alvaro de Diego\AppData\Local\Temp\WorkbenchLogs\CoreEvents12228.log</ArrayEntry>
     </logHistory>
     <expression-scope-container valType="String">Parameters</expression-scope-container>
     <project-type valType="String">WB2</project-type>
@@ -21,7 +22,6 @@
 "bb9e8666-8159-4f0f-b293-3fbcb69a97aa": "/FileContainer/FileReference:F3",
 "85abe07f-b29f-441b-83b5-864698fe705d": "/FileContainer/FileReference:F7",
 "fcbb6503-69a2-460f-aa0e-30bf259b5f77": "/FileContainer/FileReference:F2",
-"884ed046-55ee-4dee-b97a-8baabd212137": "/FileContainer/FileReference:F1",
 "165a7e7a-7e3f-405d-845f-5bd3297fc49b": "/FileContainer/FileReference:F5",
 "a92f49d9-54df-4e8a-a087-6db2e4792455": "/FileTypesContainer/FileType:GeometryFileType",
 "e23e9dc2-f0da-499a-8e3a-8f0c0012bcf6": "/FileTypesContainer/FileType:EngineeringData",
@@ -57,7 +57,8 @@
 "81800f8f-a3ac-4d5a-970c-f61758cd43f2": "/Schematic/ComponentTemplate:SimulationSolutionCellTemplate_StructuralStaticANSYS",
 "fe74e6a3-0e37-4119-9f2a-ee0100c3164f": "/Schematic/ComponentTemplate:SimulationResultsCellTemplate_StructuralStaticANSYS",
 "ff6425c1-d29c-4623-9774-32493ce9bc78": "/Schematic/ComponentTemplate:SimulationSetupCellTemplate_StructuralStaticANSYS",
-"b4239f5c-58e6-4958-a8ac-269b0c6a35d0": "/FileContainer/FileReference:F8"
+"b4239f5c-58e6-4958-a8ac-269b0c6a35d0": "/FileContainer/FileReference:F8",
+"612ae9f4-d24b-44ad-9723-acd7a5657b56": "/FileContainer/FileReference:F9"
 }</ReferenceList>
       </ProjectReferenceList>
       <DesignPointReferenceListCollection>
@@ -235,13 +236,13 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 4726, "Input": 1376, "Output": 1376}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6044, "Input": 1376, "Output": 1376}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
-      <Object Name="/FileContainer/FileReference:F1" Version="1.0">
+      <Object Name="/FileContainer/FileReference:F9" Version="1.0">
         <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F1</object-name>
-        <member-data valType="String">{"DisplayText": "quarter_disc.igs", "FileType": $$a92f49d9-54df-4e8a-a087-6db2e4792455, "DependentFiles": [], "ContainerAssociations": ["Geometry"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"D:\Documentos\Universidad\doble_titulo_francia\EPSA\yoo\beringer_brake_disc\quarter_disc.igs", "ReferenceCount": 1}</member-data>
+        <object-name valType="String">F9</object-name>
+        <member-data valType="String">{"DisplayText": "SBR_002_quart_disc_beringer.igs", "FileType": $$a92f49d9-54df-4e8a-a087-6db2e4792455, "DependentFiles": [], "ContainerAssociations": ["Geometry"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\SBR_002_quart_disc_beringer.igs", "ReferenceCount": 1}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F2" Version="1.0">
         <class-type valType="String">FileReference</class-type>
@@ -266,7 +267,7 @@
       <Object Name="/FileContainer/FileReference:F6" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F6</object-name>
-        <member-data valType="String">{"DisplayText": "bbb.wbpj", "FileType": $$9782c98e-febd-49f5-9799-6dc8867076e2, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": "$(ProjectName).wbpj", "ReferenceCount": 1}</member-data>
+        <member-data valType="String">{"DisplayText": "Simulation_001.wbpj", "FileType": $$9782c98e-febd-49f5-9799-6dc8867076e2, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": "$(ProjectName).wbpj", "ReferenceCount": 1}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F7" Version="1.0">
         <class-type valType="String">FileReference</class-type>
@@ -305,7 +306,7 @@
       <maxUpdateOrder valType="Double">1</maxUpdateOrder>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5704, "Input": 5705, "Output": 1380}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6502, "Input": 6503, "Output": 1380}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Parameters/DesignPoint:0" Version="1.0">
@@ -327,7 +328,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5322, "Input": 4814, "Output": 1383}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6069, "Input": 4814, "Output": 1383}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Schematic/System:SYS" Version="1.0">
@@ -462,7 +463,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 5649, "Input": 1678, "Output": 1678}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 6022, "Input": 1678, "Output": 1678}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
     </Container>

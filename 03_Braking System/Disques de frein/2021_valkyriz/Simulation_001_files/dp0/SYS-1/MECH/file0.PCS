@@ -4,63 +4,63 @@ Computational Applications and System Integration Inc.
 All rights Reserved.
 ******************************************************************************
 
-Job:file0	at:Mon Dec  7 11:00:15 2020
+Job:file0	at:Tue Dec  8 20:20:34 2020
 
 
 	Number of cores used (Distributed Memory Parallel): 2
-	Degrees of Freedom: 61584
-	DOF Constraints: 906
-	Elements: 5765
-		Assembled: 2117
-		Implicit: 3648
-	Nodes: 20526
+	Degrees of Freedom: 95697
+	DOF Constraints: 1119
+	Elements: 7101
+		Assembled: 1230
+		Implicit: 5871
+	Nodes: 31899
 	Number of Load Cases: 1
 
 	Nonzeros in Upper Triangular part of
-	             Global Stiffness Matrix : 277233
-	Nonzeros in Preconditioner: 1698055
+	             Global Stiffness Matrix : 391875
+	Nonzeros in Preconditioner: 849875
 		*** Precond Reorder: MLD ***
-		Nonzeros in V: 196467
-		Nonzeros in factor: 1378402
-		Equations in factor: 7879
-	*** Level of Difficulty: 2   (internal 0) ***
+		Nonzeros in V: 514854
+		Nonzeros in factor: 143627
+		Equations in factor: 1848
+	*** Level of Difficulty: 1   (internal 0) ***
 
-	Total Operation Count: 1.33569e+10
-	Total Iterations In PCG: 331
-	Average Iterations Per Load Case:  331.0
+	Total Operation Count: 3.17001e+10
+	Total Iterations In PCG: 573
+	Average Iterations Per Load Case:  573.0
 	Input PCG Error Tolerance: 1e-08
-	Achieved PCG Error Tolerance: 9.42983e-09
+	Achieved PCG Error Tolerance: 9.72887e-09
 
 
 	DETAILS OF PCG SOLVER SETUP TIME(secs)        Cpu        Wall
 	     Gather Finite Element Data              0.03        0.01
-	     Element Matrix Assembly                 0.22        0.21
+	     Element Matrix Assembly                 0.09        0.06
 
 	DETAILS OF PCG SOLVER SOLUTION TIME(secs)     Cpu        Wall
-	     Preconditioner Construction             0.03        0.02
-	     Preconditioner Factoring                0.05        0.08
+	     Preconditioner Construction             0.06        0.10
+	     Preconditioner Factoring                0.02        0.04
 	     Apply Boundary Conditions               0.00        0.00
-	     Preconditioned CG Iterations            1.20        1.25
-	          Multiply With A                    0.63        0.69
-	               Multiply With A22             0.61        0.67
-	          Solve With Precond                 0.48        0.46
-	               Solve With Bd                 0.05        0.04
-	               Multiply With V               0.11        0.09
-	               Communication Overhead        0.00        0.01
-	               Direct Solve                  0.31        0.31
+	     Preconditioned CG Iterations            2.72        2.73
+	          Multiply With A                    1.86        1.84
+	               Multiply With A22             1.61        1.54
+	          Solve With Precond                 0.64        0.67
+	               Solve With Bd                 0.06        0.10
+	               Multiply With V               0.34        0.33
+	               Communication Overhead        0.14        0.10
+	               Direct Solve                  0.05        0.11
 ******************************************************************************
-	     TOTAL PCG SOLVER SOLUTION CP TIME      =       1.28 secs
-	     TOTAL PCG SOLVER SOLUTION ELAPSED TIME =       1.35 secs
+	     TOTAL PCG SOLVER SOLUTION CP TIME      =       2.80 secs
+	     TOTAL PCG SOLVER SOLUTION ELAPSED TIME =       2.88 secs
 ******************************************************************************
 	Total Memory Usage at CG         :       1.15 GB
-	PCG Memory Usage at CG           :       0.04 GB
+	PCG Memory Usage at CG           :       0.05 GB
 	Memory Usage for MSAVE Data      :       0.00 GB
 	*** Memory Saving Mode Activated : Jacobians Precomputed ***
 	*** I/O Reduction Mode Activated ***
 ******************************************************************************
-	Multiply with A GFLOP Rate       :      15.16 GFlops
-	Solve With Precond GFLOP Rate    :       5.10 GFlops
-	Precond Factoring GFLOP Rate     :       3.69 GFlops
+	Multiply with A GFLOP Rate       :      15.72 GFlops
+	Solve With Precond GFLOP Rate    :       3.58 GFlops
+	Precond Factoring GFLOP Rate     :       0.36 GFlops
 ******************************************************************************
 	Total amount of I/O read         :       0.00 GB
 	Total amount of I/O written      :       0.00 GB

@@ -6,10 +6,12 @@ vel=100/3.6;%m/s car speed before braking
 alpha=0.72; % percentage of braking force absorbed by the front wheels
 g=9.81; % m/s^2 gravity
 decel=1.5*g; %m/s^2 deceleration of the vehicule
-r_fr_ext_disc=149e-3; %m
-D_ext_disc=149e-3*2;% m Outer diameter of disc
+r_fr_ext_disc=230e-3/2; %m
+r_fr_int_disc=182.8e-3/2; %m
+r_ext_pad=101e-3; %m
+r_int_pad=77.8e-3; %m
+D_ext_disc=230e-3;% m Outer diameter of disc
 ka=.02624 ;% W/mk thermal conductivity of air at 25ºC
-r_fr_int_disc=128.8e-3; %m
 rho_disc=7750; %kg/m^3 stainless steel density
 rho_air=1.184;%kg/m^3 air density at 25ºC
 c_disc=450; %J/(kg K) brake disc specific heat capacity
@@ -22,7 +24,7 @@ c_pad=1465;
 k_pad=1.212;
 %% Calculations
 %HEAT FLUX
-A_fr_pad=pi*(r_fr_ext_disc^2-r_fr_int_disc^2)*40/360;
+A_fr_pad=pi*(r_ext_pad^2-r_int_pad^2)*40/360;
 A_fr_disc=pi*(r_fr_ext_disc^2-r_fr_int_disc^2);
 th_effus_disc=sqrt(rho_disc*c_disc*k_disc);% W s^0.5/(m^2 K)thermal effusivity
 th_effus_pad=sqrt(rho_pad*c_pad*k_pad);% W s^0.5/(m^2 K)thermal effusivity

@@ -217,7 +217,7 @@
               <Qualifier name="Lower Limit">Program Controlled</Qualifier>
             </ParameterValue>
           </PropertyData>
-          <PropertyData property="pr11">
+          <PropertyData property="pr10">
             <Data format="string">-</Data>
             <Qualifier name="Interpolation">Log-Log</Qualifier>
             <Qualifier name="Field Variable Compatible">Mean Stress</Qualifier>
@@ -235,7 +235,7 @@
               <Qualifier name="Scale">1,1,1,1,1,1,1,1,1,1,1</Qualifier>
               <Qualifier name="Units">,,,,,,,,,,</Qualifier>
             </ParameterValue>
-            <ParameterValue parameter="pa20" format="float">
+            <ParameterValue parameter="pa18" format="float">
               <Data>0,0,0,0,0,0,0,0,0,0,0</Data>
               <Qualifier name="Variable Type">Independent,Independent,Independent,Independent,Independent,Independent,Independent,Independent,Independent,Independent,Independent</Qualifier>
               <Qualifier name="Offset">0 [Pa],0 [Pa],0 [Pa],0 [Pa],0 [Pa],0 [Pa],0 [Pa],0 [Pa],0 [Pa],0 [Pa],0 [Pa]</Qualifier>
@@ -258,7 +258,7 @@
               <Qualifier name="Scale">1</Qualifier>
               <Qualifier name="Units">Pa</Qualifier>
             </ParameterValue>
-            <ParameterValue parameter="pa25" format="float">
+            <ParameterValue parameter="pa24" format="float">
               <Data>-0.106</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0</Qualifier>
@@ -266,7 +266,7 @@
               <Qualifier name="Units">
               </Qualifier>
             </ParameterValue>
-            <ParameterValue parameter="pa26" format="float">
+            <ParameterValue parameter="pa25" format="float">
               <Data>0.213</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0</Qualifier>
@@ -274,7 +274,7 @@
               <Qualifier name="Units">
               </Qualifier>
             </ParameterValue>
-            <ParameterValue parameter="pa27" format="float">
+            <ParameterValue parameter="pa26" format="float">
               <Data>-0.47</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0</Qualifier>
@@ -282,7 +282,7 @@
               <Qualifier name="Units">
               </Qualifier>
             </ParameterValue>
-            <ParameterValue parameter="pa28" format="float">
+            <ParameterValue parameter="pa27" format="float">
               <Data>1000000000</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0 [Pa]</Qualifier>
@@ -298,7 +298,7 @@
               </Qualifier>
             </ParameterValue>
           </PropertyData>
-          <PropertyData property="pr10">
+          <PropertyData property="pr11">
             <Data format="string">-</Data>
             <Qualifier name="Behavior">Isotropic</Qualifier>
             <ParameterValue parameter="pa15" format="float">
@@ -327,14 +327,14 @@
               <Qualifier name="Normalized">True</Qualifier>
               <Qualifier name="Cached">True</Qualifier>
             </ParameterValue>
-            <ParameterValue parameter="pa18" format="float">
+            <ParameterValue parameter="pa19" format="float">
               <Data>200000000000</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0 [Pa]</Qualifier>
               <Qualifier name="Scale">1</Qualifier>
               <Qualifier name="Units">Pa</Qualifier>
             </ParameterValue>
-            <ParameterValue parameter="pa19" format="float">
+            <ParameterValue parameter="pa20" format="float">
               <Data>0.3</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0</Qualifier>
@@ -372,7 +372,7 @@
           <PropertyData property="pr14">
             <Data format="string">-</Data>
             <Qualifier name="Behavior">Isotropic</Qualifier>
-            <ParameterValue parameter="pa24" format="float">
+            <ParameterValue parameter="pa28" format="float">
               <Data>10000</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0</Qualifier>
@@ -600,7 +600,7 @@
               <Qualifier name="Lower Limit">Program Controlled</Qualifier>
             </ParameterValue>
           </PropertyData>
-          <PropertyData property="pr10">
+          <PropertyData property="pr11">
             <Data format="string">-</Data>
             <Qualifier name="Behavior">Isotropic</Qualifier>
             <ParameterValue parameter="pa15" format="float">
@@ -629,14 +629,14 @@
               <Qualifier name="Normalized">True</Qualifier>
               <Qualifier name="Cached">True</Qualifier>
             </ParameterValue>
-            <ParameterValue parameter="pa18" format="float">
+            <ParameterValue parameter="pa19" format="float">
               <Data>193000000000</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0 [Pa]</Qualifier>
               <Qualifier name="Scale">1</Qualifier>
               <Qualifier name="Units">Pa</Qualifier>
             </ParameterValue>
-            <ParameterValue parameter="pa19" format="float">
+            <ParameterValue parameter="pa20" format="float">
               <Data>0.31</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0</Qualifier>
@@ -674,7 +674,7 @@
           <PropertyData property="pr14">
             <Data format="string">-</Data>
             <Qualifier name="Behavior">Isotropic</Qualifier>
-            <ParameterValue parameter="pa24" format="float">
+            <ParameterValue parameter="pa28" format="float">
               <Data>1</Data>
               <Qualifier name="Variable Type">Dependent</Qualifier>
               <Qualifier name="Offset">0</Qualifier>
@@ -694,45 +694,6 @@
         <ParameterDetails id="pa0">
           <Name>Red</Name>
         </ParameterDetails>
-        <ParameterDetails id="pa9">
-          <Name>Tensile Yield Strength</Name>
-          <Units name="Stress" />
-        </ParameterDetails>
-        <ParameterDetails id="pa10">
-          <Name>Tensile Ultimate Strength</Name>
-          <Units name="Stress" />
-        </ParameterDetails>
-        <ParameterDetails id="pa16">
-          <Name>Alternating Stress</Name>
-          <Units name="Stress" />
-        </ParameterDetails>
-        <ParameterDetails id="pa17">
-          <Name>Cycles</Name>
-        </ParameterDetails>
-        <ParameterDetails id="pa20">
-          <Name>Mean Stress</Name>
-          <Units name="Stress" />
-        </ParameterDetails>
-        <ParameterDetails id="pa23">
-          <Name>Strength Coefficient</Name>
-          <Units name="Stress" />
-        </ParameterDetails>
-        <ParameterDetails id="pa25">
-          <Name>Strength Exponent</Name>
-        </ParameterDetails>
-        <ParameterDetails id="pa26">
-          <Name>Ductility Coefficient</Name>
-        </ParameterDetails>
-        <ParameterDetails id="pa27">
-          <Name>Ductility Exponent</Name>
-        </ParameterDetails>
-        <ParameterDetails id="pa28">
-          <Name>Cyclic Strength Coefficient</Name>
-          <Units name="Stress" />
-        </ParameterDetails>
-        <ParameterDetails id="pa29">
-          <Name>Cyclic Strain Hardening Exponent</Name>
-        </ParameterDetails>
         <ParameterDetails id="pa1">
           <Name>Green</Name>
         </ParameterDetails>
@@ -750,9 +711,6 @@
           <Name>Compressive Yield Strength</Name>
           <Units name="Stress" />
         </ParameterDetails>
-        <ParameterDetails id="pa6">
-          <Name>Options Variable</Name>
-        </ParameterDetails>
         <ParameterDetails id="pa7">
           <Name>Density</Name>
           <Units name="Density" />
@@ -760,6 +718,14 @@
         <ParameterDetails id="pa8">
           <Name>Temperature</Name>
           <Units name="Temperature" />
+        </ParameterDetails>
+        <ParameterDetails id="pa9">
+          <Name>Tensile Yield Strength</Name>
+          <Units name="Stress" />
+        </ParameterDetails>
+        <ParameterDetails id="pa10">
+          <Name>Tensile Ultimate Strength</Name>
+          <Units name="Stress" />
         </ParameterDetails>
         <ParameterDetails id="pa11">
           <Name>Coefficient of Thermal Expansion</Name>
@@ -777,15 +743,49 @@
           <Name>Thermal Conductivity</Name>
           <Units name="Thermal Conductivity" />
         </ParameterDetails>
+        <ParameterDetails id="pa16">
+          <Name>Alternating Stress</Name>
+          <Units name="Stress" />
+        </ParameterDetails>
+        <ParameterDetails id="pa17">
+          <Name>Cycles</Name>
+        </ParameterDetails>
+        <ParameterDetails id="pa18">
+          <Name>Mean Stress</Name>
+          <Units name="Stress" />
+        </ParameterDetails>
+        <ParameterDetails id="pa23">
+          <Name>Strength Coefficient</Name>
+          <Units name="Stress" />
+        </ParameterDetails>
+        <ParameterDetails id="pa24">
+          <Name>Strength Exponent</Name>
+        </ParameterDetails>
+        <ParameterDetails id="pa25">
+          <Name>Ductility Coefficient</Name>
+        </ParameterDetails>
+        <ParameterDetails id="pa26">
+          <Name>Ductility Exponent</Name>
+        </ParameterDetails>
+        <ParameterDetails id="pa27">
+          <Name>Cyclic Strength Coefficient</Name>
+          <Units name="Stress" />
+        </ParameterDetails>
+        <ParameterDetails id="pa29">
+          <Name>Cyclic Strain Hardening Exponent</Name>
+        </ParameterDetails>
+        <ParameterDetails id="pa6">
+          <Name>Options Variable</Name>
+        </ParameterDetails>
         <ParameterDetails id="pa15">
           <Name>Resistivity</Name>
           <Units name="Electrical Resistivity" />
         </ParameterDetails>
-        <ParameterDetails id="pa18">
+        <ParameterDetails id="pa19">
           <Name>Young's Modulus</Name>
           <Units name="Stress" />
         </ParameterDetails>
-        <ParameterDetails id="pa19">
+        <ParameterDetails id="pa20">
           <Name>Poisson's Ratio</Name>
         </ParameterDetails>
         <ParameterDetails id="pa21">
@@ -796,7 +796,7 @@
           <Name>Shear Modulus</Name>
           <Units name="Stress" />
         </ParameterDetails>
-        <ParameterDetails id="pa24">
+        <ParameterDetails id="pa28">
           <Name>Relative Permeability</Name>
         </ParameterDetails>
         <PropertyDetails id="pr0">
@@ -830,10 +830,10 @@
           <Name>Thermal Conductivity</Name>
         </PropertyDetails>
         <PropertyDetails id="pr10">
-          <Name>Resistivity</Name>
+          <Name>S-N Curve</Name>
         </PropertyDetails>
         <PropertyDetails id="pr11">
-          <Name>S-N Curve</Name>
+          <Name>Resistivity</Name>
         </PropertyDetails>
         <PropertyDetails id="pr12">
           <Name>Elasticity</Name>
