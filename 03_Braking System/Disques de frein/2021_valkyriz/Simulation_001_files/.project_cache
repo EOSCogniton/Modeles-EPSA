@@ -16,7 +16,6 @@ dp0/SYS/MECH/MatML.xml
 dp0/SYS/MECH/solve.out
 dp0/SYS-1/MECH/CAERep.xml
 dp0/SYS-1/MECH/CAERepOutput.xml
-dp0/SYS-1/MECH/ds.dat
 dp0/SYS-1/MECH/file.cnd
 dp0/SYS-1/MECH/file.mntr
 dp0/SYS-1/MECH/file.rst
@@ -30,6 +29,7 @@ session_files/journal2.wbjn
 session_files/journal3.wbjn
 session_files/journal4.wbjn
 session_files/journal5.wbjn
+session_files/journal6.wbjn
 dp0/
 session_files/
 dp0/global/

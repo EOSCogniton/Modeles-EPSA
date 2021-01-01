@@ -74,13 +74,13 @@
        2 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
     TOTAL OF     2 CORES REQUESTED
   DESIGNXPLORER REQUESTED
-  INPUT FILE NAME              = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr26E3\dummy.dat
-  OUTPUT FILE NAME             = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr26E3\solve.out
+  INPUT FILE NAME              = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr3A6A\dummy.dat
+  OUTPUT FILE NAME             = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr3A6A\solve.out
   START-UP FILE MODE           = NOREAD
   STOP FILE MODE               = NOREAD
 
  RELEASE= 2020 R1              BUILD= 20.1      UP20191203   VERSION=WINDOWS x64 
- CURRENT JOBNAME=file0  20:20:29  DEC 08, 2020 CP=      0.172
+ CURRENT JOBNAME=file0  16:03:53  JAN 01, 2021 CP=      0.641
 
 
  PARAMETER _DS_PROGRESS =     999.0000000    
@@ -89,11 +89,11 @@
 
 
 
- *** NOTE ***                            CP =       0.281   TIME= 20:20:29
+ *** NOTE ***                            CP =       0.750   TIME= 16:03:53
  The /CONFIG,NOELDB command is not valid in a Distributed ANSYS          
  solution.  Command is ignored.                                          
 
- *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  20.3413889    
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0647222    
 
  TITLE= 
  Simulation_001--Static Structural (B5)                                        
@@ -102,7 +102,7 @@
  SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_PROJECTSCRATCH_DIR(1) = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr26E3\
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr3A6A\
 
  SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
@@ -113,34 +113,23 @@
   TYPE=STRI  DIMENSIONS=      248        1        1
 
  PARAMETER _WB_USERFILES_DIR(1) = D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\Simulation_001_files\user_files\
- --- Data in consistent MKS units. See Solving Units in the help system for more
+ --- Data in consistent NMM units. See Solving Units in the help system for more
 
- MKS UNITS SPECIFIED FOR INTERNAL    
-  LENGTH        (l)  = METER (M)
-  MASS          (M)  = KILOGRAM (KG)
-  TIME          (t)  = SECOND (SEC)
-  TEMPERATURE   (T)  = CELSIUS (C)
-  TOFFSET            = 273.0
-  CHARGE        (Q)  = COULOMB
-  FORCE         (f)  = NEWTON (N) (KG-M/SEC2)
-  HEAT               = JOULE (N-M)
+ MPA UNITS SPECIFIED FOR INTERNAL    
+  LENGTH      = MILLIMETERS (mm)
+  MASS        = TONNE (Mg)
+  TIME        = SECONDS (sec)
+  TEMPERATURE = CELSIUS (C)
+  TOFFSET     = 273.0
+  FORCE       = NEWTON (N)
+  HEAT        = MILLIJOULES (mJ)
 
-  PRESSURE           = PASCAL (NEWTON/M**2)
-  ENERGY        (W)  = JOULE (N-M)
-  POWER         (P)  = WATT (N-M/SEC)
-  CURRENT       (i)  = AMPERE (COULOMBS/SEC)
-  CAPACITANCE   (C)  = FARAD
-  INDUCTANCE    (L)  = HENRY
-  MAGNETIC FLUX      = WEBER
-  RESISTANCE    (R)  = OHM
-  ELECTRIC POTENTIAL = VOLT
-
- INPUT  UNITS ARE ALSO SET TO MKS 
+ INPUT  UNITS ARE ALSO SET TO MPA 
 
  *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 2020 R1          20.1     ***
  DISTRIBUTED ANSYS Academic Teaching Introductory              
 
- 01055371  VERSION=WINDOWS x64   20:20:29  DEC 08, 2020 CP=      0.281
+ 01055371  VERSION=WINDOWS x64   16:03:53  JAN 01, 2021 CP=      0.766
 
  Simulation_001--Static Structural (B5)                                        
 
@@ -159,20 +148,24 @@
  *********** Fixed Supports ***********
  ********* Frictionless Supports X *********
  ********* Frictionless Supports Y *********
+ *********** Define Force Using Surface Effect Elements ***********
+ *********** Define Force Using Surface Effect Elements ***********
+ *********** Create Remote Point "Internal Remote Point" ***********
+ *********** Construct Moment Using Remote Attachment ***********
 
 
- ***** ROUTINE COMPLETED *****  CP =         0.406
+ ***** ROUTINE COMPLETED *****  CP =         1.031
 
 
  --- Number of total nodes = 31900
- --- Number of contact elements = 1230
+ --- Number of contact elements = 5010
  --- Number of spring elements = 0
  --- Number of bearing elements = 0
  --- Number of solid elements = 5871
  --- Number of condensed parts = 0
- --- Number of total elements = 7101
+ --- Number of total elements = 10882
 
- *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  20.3413889    
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0647222    
  ****************************************************************************
  *************************    SOLUTION       ********************************
  ****************************************************************************
@@ -201,6 +194,73 @@
  DO NOT SAVE ANY RESTART FILES AT ALL
  ****************************************************
  ******************* SOLVE FOR LS 1 OF 1 ****************
+
+ SELECT       FOR ITEM=TYPE COMPONENT=    
+  IN RANGE         5 TO          5 STEP          1
+
+       1728  ELEMENTS (OF      10882  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SELECT      ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
+
+       5433 NODES (OF      31900  DEFINED) SELECTED FROM
+     1728 SELECTED ELEMENTS BY NSLE COMMAND.
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  1   KVAL = 1
+     VALUES =     0.0000         0.0000         0.0000         0.0000    
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  2   KVAL = 1
+     VALUES =     0.0000         0.0000         0.0000         0.0000    
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  3   KVAL = 1
+     VALUES =   -0.17735       -0.17735       -0.17735       -0.17735    
+
+ SELECT       FOR ITEM=TYPE COMPONENT=    
+  IN RANGE         6 TO          6 STEP          1
+
+       1728  ELEMENTS (OF      10882  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SELECT      ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
+
+       5433 NODES (OF      31900  DEFINED) SELECTED FROM
+     1728 SELECTED ELEMENTS BY NSLE COMMAND.
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  1   KVAL = 1
+     VALUES =     0.0000         0.0000         0.0000         0.0000    
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  2   KVAL = 1
+     VALUES =     0.0000         0.0000         0.0000         0.0000    
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  3   KVAL = 1
+     VALUES =    0.17735        0.17735        0.17735        0.17735    
+
+ ALL SELECT   FOR ITEM=NODE COMPONENT=    
+  IN RANGE         1 TO      31900 STEP          1
+
+      31900  NODES (OF      31900  DEFINED) SELECTED BY NSEL  COMMAND.
+
+ ALL SELECT   FOR ITEM=ELEM COMPONENT=    
+  IN RANGE         1 TO      16183 STEP          1
+
+      10882  ELEMENTS (OF      10882  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SELECT       FOR ITEM=NODE COMPONENT=    
+  IN RANGE     31900 TO      31900 STEP          1
+
+          1  NODES (OF      31900  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED NODAL LOAD MX   FOR SELECTED NODES         1 TO    31900 BY        1
+  REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED NODAL LOAD MY   FOR SELECTED NODES         1 TO    31900 BY        1
+  REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED NODAL LOAD MZ   FOR SELECTED NODES         1 TO    31900 BY        1
+  REAL= -280100.000       IMAG=  0.00000000    
+
+ ALL SELECT   FOR ITEM=NODE COMPONENT=    
+  IN RANGE         1 TO      31900 STEP          1
+
+      31900  NODES (OF      31900  DEFINED) SELECTED BY NSEL  COMMAND.
 
  PRINTOUT RESUMED BY /GOP
  *********** Create Imported Load "Imported Body Temperature" ***********
@@ -257,22 +317,22 @@
 
  *ENDIF
 
- *** NOTE ***                            CP =       2.391   TIME= 20:20:31
+ *** NOTE ***                            CP =       8.047   TIME= 16:04:00
  The automatic domain decomposition logic has selected the MESH domain   
  decomposition method with 2 processes per solution.                     
 
  *****  ANSYS SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =       2.391   TIME= 20:20:31
+ *** WARNING ***                         CP =       8.078   TIME= 16:04:00
  Element shape checking is currently inactive.  Issue SHPP,ON or         
  SHPP,WARN to reactivate, if desired.                                    
 
- *** NOTE ***                            CP =       2.484   TIME= 20:20:31
+ *** NOTE ***                            CP =       8.484   TIME= 16:04:00
  The model data was checked and warning messages were found.             
   Please review output or errors file (                                  
  D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-E 
  PSA\Modeles-EPSA\03_Braking System\Disques de                           
- frein\2021_valkyriz\_ProjectScratch\Scr26E3\file0.err ) for these       
+ frein\2021_valkyriz\_ProjectScratch\Scr3A6A\file0.err ) for these       
  warning messages.                                                       
 
  *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -289,7 +349,7 @@
  *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 2020 R1          20.1     ***
  DISTRIBUTED ANSYS Academic Teaching Introductory              
 
- 01055371  VERSION=WINDOWS x64   20:20:31  DEC 08, 2020 CP=      2.516
+ 01055371  VERSION=WINDOWS x64   16:04:00  JAN 01, 2021 CP=      8.500
 
  Simulation_001--Static Structural (B5)                                        
 
@@ -298,18 +358,41 @@
                        S O L U T I O N   O P T I O N S
 
    PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
-   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ   ROTX ROTY ROTZ
    ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
    OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15    
    EQUATION SOLVER OPTION. . . . . . . . . . . . .PCG                
       TOLERANCE. . . . . . . . . . . . . . . . . . 1.00000E-08
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
 
- *** NOTE ***                            CP =       2.516   TIME= 20:20:31
+ *** WARNING ***                         CP =       8.562   TIME= 16:04:00
+ Material number 5 (used by element 12403) should normally have at least 
+ one MP or one TB type command associated with it.  Output of energy by  
+ material may not be available.                                          
+
+ *** NOTE ***                            CP =       8.609   TIME= 16:04:00
+ The step data was checked and warning messages were found.              
+  Please review output or errors file (                                  
+ D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-E 
+ PSA\Modeles-EPSA\03_Braking System\Disques de                           
+ frein\2021_valkyriz\_ProjectScratch\Scr3A6A\file0.err ) for these       
+ warning messages.                                                       
+
+ *** NOTE ***                            CP =       8.609   TIME= 16:04:00
  The conditions for direct assembly have been met.  No .emat or .erot    
  files will be produced.                                                 
 
- *** NOTE ***                            CP =       2.609   TIME= 20:20:31
+ *** NOTE ***                            CP =       8.672   TIME= 16:04:00
+ Internal nodes from 31901 to 31901 are created.                         
+ 1 internal nodes are used for handling degrees of freedom on pilot      
+ nodes of rigid target surfaces.                                         
+
+ *** NOTE ***                            CP =       8.734   TIME= 16:04:00
+ Internal nodes from 31901 to 31901 are created.                         
+ 1 internal nodes are used for handling degrees of freedom on pilot      
+ nodes of rigid target surfaces.                                         
+
+ *** NOTE ***                            CP =       9.078   TIME= 16:04:01
  Symmetric Deformable- deformable contact pair identified by real        
  constant set 3 and contact element type 3 has been set up.  The         
  companion pair has real constant set ID 4.  Both pairs should have the  
@@ -320,27 +403,27 @@
  Contact algorithm: Augmented Lagrange method
  Contact detection at: Gauss integration point
  Contact stiffness factor FKN                  10.000    
- The resulting initial contact stiffness      0.25989E+17
+ The resulting initial contact stiffness      0.25989E+08
  Default penetration tolerance factor FTOLN   0.10000    
- The resulting penetration tolerance          0.14852E-03
+ The resulting penetration tolerance          0.14852    
  Default opening contact stiffness OPSF will be used.
  Default tangent stiffness factor FKT          1.0000    
  Use constant contact stiffness
  Default Max. friction stress TAUMAX          0.10000E+21
- Average contact surface length               0.14592E-02
- Average contact pair depth                   0.14852E-02
+ Average contact surface length                1.4592    
+ Average contact pair depth                    1.4852    
  Default pinball region factor PINB           0.25000    
- The resulting pinball region                 0.37131E-03
+ The resulting pinball region                 0.37131    
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
 
- *** NOTE ***                            CP =       2.609   TIME= 20:20:31
- Max.  Initial penetration 1.478926373E-11 was detected between contact  
- element 11782 and target element 12369.                                 
+ *** NOTE ***                            CP =       9.078   TIME= 16:04:01
+ Max.  Initial penetration 1.478929299E-08 was detected between contact  
+ element 11533 and target element 12147.                                 
  ****************************************
   
 
- *** NOTE ***                            CP =       2.609   TIME= 20:20:31
+ *** NOTE ***                            CP =       9.078   TIME= 16:04:01
  Symmetric Deformable- deformable contact pair identified by real        
  constant set 4 and contact element type 3 has been set up.  The         
  companion pair has real constant set ID 3.  Both pairs should have the  
@@ -351,40 +434,51 @@
  Contact algorithm: Augmented Lagrange method
  Contact detection at: Gauss integration point
  Contact stiffness factor FKN                  10.000    
- The resulting initial contact stiffness      0.25989E+17
+ The resulting initial contact stiffness      0.25989E+08
  Default penetration tolerance factor FTOLN   0.10000    
- The resulting penetration tolerance          0.12845E-03
+ The resulting penetration tolerance          0.12845    
  Default opening contact stiffness OPSF will be used.
  Default tangent stiffness factor FKT          1.0000    
  Use constant contact stiffness
  Default Max. friction stress TAUMAX          0.10000E+21
- Average contact surface length               0.14950E-02
- Average contact pair depth                   0.12845E-02
+ Average contact surface length                1.4950    
+ Average contact pair depth                    1.2845    
  Default pinball region factor PINB           0.25000    
- The resulting pinball region                 0.32114E-03
+ The resulting pinball region                 0.32114    
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
 
- *** NOTE ***                            CP =       2.609   TIME= 20:20:31
- Max.  Initial penetration 2.072137256E-12 was detected between contact  
- element 11829 and target element 11182.                                 
+ *** NOTE ***                            CP =       9.078   TIME= 16:04:01
+ Max.  Initial penetration 2.07210825E-09 was detected between contact   
+ element 12103 and target element 11487.                                 
  ****************************************
   
 
- *** WARNING ***                         CP =       2.609   TIME= 20:20:31
- Maximum contact stiffness 2.598906851E+16 is too big which can cause an 
- accuracy problem, you may scale the force units in the model.           
+ *** NOTE ***                            CP =       9.078   TIME= 16:04:01
+ Force-distributed-surface identified by real constant set 7 and         
+ contact element type 7 has been set up.  The pilot node 31900 is used   
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+ ****************************************
   
   
+  
+
+ *** NOTE ***                            CP =       9.156   TIME= 16:04:01
+ Internal nodes from 31901 to 31901 are created.                         
+ 1 internal nodes are used for handling degrees of freedom on pilot      
+ nodes of rigid target surfaces.                                         
 
   
   
      D I S T R I B U T E D   D O M A I N   D E C O M P O S E R
   
-  ...Number of elements: 7101
-  ...Number of nodes:    31900
+  ...Number of elements: 10882
+  ...Number of nodes:    31901
   ...Decompose to 2 CPU domains
-  ...Element load balance ratio =     1.104
+  ...Element load balance ratio =     1.042
 
 
                       L O A D   S T E P   O P T I O N S
@@ -411,36 +505,49 @@
 
  SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr                                                                                                                                                                                                                                                           
 
+ *** NOTE ***                            CP =      10.047   TIME= 16:04:01
+ Force-distributed-surface identified by real constant set 7 and         
+ contact element type 7 has been set up.  The pilot node 31900 is used   
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+ ****************************************
+  
 
- *** NOTE ***                            CP =       2.922   TIME= 20:20:31
+
+ *** NOTE ***                            CP =      10.578   TIME= 16:04:02
  The PCG solver has automatically set the level of difficulty for this   
- model to 1.                                                             
+ model to 2.                                                             
+  
+ The FEA model contains 0 external CE equations and 6 internal CE        
+ equations.                                                              
 
 
                          ***********  PRECISE MASS SUMMARY  ***********
 
    TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
                Translational mass               |   Coupled translational/rotational mass
-        0.14939        0.0000        0.0000     |     0.0000       0.33612E-03   0.96798E-02
-         0.0000       0.14939        0.0000     |   -0.33612E-03    0.0000       0.97254E-02
-         0.0000        0.0000       0.14939     |   -0.96798E-02  -0.97254E-02    0.0000    
+        0.14939E-03    0.0000        0.0000     |     0.0000       0.33612E-03   0.96798E-02
+         0.0000       0.14939E-03    0.0000     |   -0.33612E-03    0.0000       0.97254E-02
+         0.0000        0.0000       0.14939E-03 |   -0.96798E-02  -0.97254E-02    0.0000    
      ------------------------------------------ | ------------------------------------------
                                                 |         Rotational mass (inertia)
-                                                |    0.78332E-03   0.49794E-03  -0.21882E-04
-                                                |    0.49794E-03   0.78332E-03   0.21780E-04
-                                                |   -0.21882E-04   0.21780E-04   0.15646E-02
+                                                |    0.78332       0.49794      -0.21882E-01
+                                                |    0.49794       0.78332       0.21780E-01
+                                                |   -0.21882E-01   0.21780E-01    1.5646    
 
-   TOTAL MASS = 0.14939    
+   TOTAL MASS = 0.14939E-03
      The mass principal axes coincide with the global Cartesian axes
 
-   CENTER OF MASS (X,Y,Z)=   0.65102E-01  -0.64797E-01   0.22500E-02
+   CENTER OF MASS (X,Y,Z)=    65.102       -64.797        2.2500    
 
    TOTAL INERTIA ABOUT CENTER OF MASS
-        0.15534E-03  -0.13224E-03   0.17635E-12
-       -0.13224E-03   0.14942E-03   0.13292E-12
-        0.17635E-12   0.13292E-12   0.30426E-03
+        0.15534      -0.13224       0.17635E-09
+       -0.13224       0.14942       0.13292E-09
+        0.17635E-09   0.13292E-09   0.30426    
 
-   PRINCIPAL INERTIAS =   0.28465E-03   0.20107E-04   0.30426E-03
+   PRINCIPAL INERTIAS =   0.28465       0.20107E-01   0.30426    
    ORIENTATION VECTORS OF THE INERTIA PRINCIPAL AXES IN GLOBAL CARTESIAN
      ( 0.715,-0.699,-0.000) ( 0.699, 0.715,-0.000) ( 0.000,-0.000, 1.000) 
 
@@ -448,86 +555,96 @@
   *** MASS SUMMARY BY ELEMENT TYPE ***
 
   TYPE      MASS
-     1  0.133422    
-     2  0.159653E-01
+     1  0.133422E-03
+     2  0.159653E-04
 
  Range of element maximum matrix coefficients in global coordinates
- Maximum = 1.402033983E+10 at element 11812.                             
- Minimum = 237581373 at element 5728.                                    
+ Maximum = 14020339.8 at element 11503.                                  
+ Minimum = 237581.373 at element 5728.                                   
 
    *** ELEMENT MATRIX FORMULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1      5184  SOLID186      0.656   0.000127
-        2       687  SOLID186      0.094   0.000136
-        3       615  CONTA174      0.016   0.000025
+        1      5184  SOLID186      2.234   0.000431
+        2       687  SOLID186      0.344   0.000500
+        3       615  CONTA174      0.219   0.000356
         4       615  TARGE170      0.016   0.000025
- Time at end of element matrix formulation CP = 3.421875.                
- curEqn=    966  totEqn=    966 Job CP sec=      3.500
-      Factor Done= 100% Factor Wall sec=      0.008 rate=     861.7 Mflops
- Iteration=     5 Ratio=  0.277189     Limit=  1.000000E-08 Wall=     0.0
- Iteration=   100 Ratio=  9.367612E-04 Limit=  1.000000E-08 Wall=     0.5
- Iteration=   330 Ratio=  2.976685E-06 Limit=  1.000000E-08 Wall=     1.6
+        5      1728  SURF154       0.359   0.000208
+        6      1728  SURF154       0.250   0.000145
+        7       324  CONTA174      0.016   0.000048
+        8         1  TARGE170      0.000   0.000000
+ Time at end of element matrix formulation CP = 13.15625.                
+ curEqn=   5355  totEqn=   5355 Job CP sec=     13.656
+      Factor Done= 100% Factor Wall sec=      0.101 rate=    3965.6 Mflops
+ Iteration=     5 Ratio=  0.268825     Limit=  1.000000E-08 Wall=     0.1
+ Iteration=    80 Ratio=  9.461307E-04 Limit=  1.000000E-08 Wall=     1.5
+ Iteration=   220 Ratio=  2.494752E-06 Limit=  1.000000E-08 Wall=     4.4
 
  DISTRIBUTED PCG SOLVER SOLUTION CONVERGED
 
  DISTRIBUTED PCG SOLVER SOLUTION STATISTICS
 
-   NUMBER OF DOMAINS   =         197
-   NUMBER OF ITERATIONS=         573
-   NUMBER OF EQUATIONS =       95697
+   NUMBER OF DOMAINS   =         302
+   NUMBER OF ITERATIONS=         345
+   NUMBER OF EQUATIONS =       95709
    LEVEL OF CONVERGENCE=           1
-   CALCULATED NORM     = 0.97289E-08
+   CALCULATED NORM     = 0.98561E-08
    SPECIFIED TOLERANCE = 0.10000E-07
-   TOTAL CPU TIME (sec)=        2.80
-   TOTAL WALL TIME(sec)=        2.88
-   TOTAL MEMORY (GB)   =        0.02
+   TOTAL CPU TIME (sec)=        7.09
+   TOTAL WALL TIME(sec)=        7.54
+   TOTAL MEMORY (GB)   =        0.03
 
 
    *** ELEMENT RESULT CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1      5184  SOLID186      0.312   0.000060
-        2       687  SOLID186      0.062   0.000091
-        3       615  CONTA174      0.000   0.000000
+        1      5184  SOLID186      1.281   0.000247
+        2       687  SOLID186      0.188   0.000273
+        3       615  CONTA174      0.094   0.000152
+        5      1728  SURF154       0.062   0.000036
+        6      1728  SURF154       0.141   0.000081
+        7       324  CONTA174      0.000   0.000000
 
    *** NODAL LOAD CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1      5184  SOLID186      0.062   0.000012
+        1      5184  SOLID186      0.156   0.000030
         2       687  SOLID186      0.016   0.000023
         3       615  CONTA174      0.016   0.000025
+        5      1728  SURF154       0.031   0.000018
+        6      1728  SURF154       0.000   0.000000
+        7       324  CONTA174      0.000   0.000000
  *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
  *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
 
 
  *** ANSYS BINARY FILE STATISTICS
   BUFFER SIZE USED= 16384
-        2.562 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
-        4.438 MB WRITTEN ON RESULTS FILE: file0.rst
+        6.375 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
+        5.125 MB WRITTEN ON RESULTS FILE: file0.rst
  *************** Write FE CONNECTORS *********
 
  WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce                                                                                                                                                                                                                                                             
  ****************************************************
  *************** FINISHED SOLVE FOR LS 1 *************
 
- *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  20.3427778    
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0705556    
 
  PRINTOUT RESUMED BY /GOP
 
- *GET  _PCGITER  FROM  ACTI  ITEM=SOLU CGIT  VALUE=  573.000000    
+ *GET  _PCGITER  FROM  ACTI  ITEM=SOLU CGIT  VALUE=  345.000000    
 
  FINISH SOLUTION PROCESSING
 
 
- ***** ROUTINE COMPLETED *****  CP =         6.594
+ ***** ROUTINE COMPLETED *****  CP =        22.031
 
 
 
  *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 2020 R1          20.1     ***
  DISTRIBUTED ANSYS Academic Teaching Introductory              
 
- 01055371  VERSION=WINDOWS x64   20:20:35  DEC 08, 2020 CP=      6.594
+ 01055371  VERSION=WINDOWS x64   16:04:14  JAN 01, 2021 CP=     22.031
 
  Simulation_001--Static Structural (B5)                                        
 
@@ -535,7 +652,7 @@
 
           ***** ANSYS RESULTS INTERPRETATION (POST1) *****
 
- *** NOTE ***                            CP =       6.594   TIME= 20:20:35
+ *** NOTE ***                            CP =      22.031   TIME= 16:04:14
  Reading results into the database (SET command) will update the current 
  displacement and force boundary conditions in the database with the     
  values from the results file for that load set.  Note that any          
@@ -553,29 +670,29 @@
  EXIT THE ANSYS POST1 DATABASE PROCESSOR
 
 
- ***** ROUTINE COMPLETED *****  CP =         6.594
+ ***** ROUTINE COMPLETED *****  CP =        22.047
 
 
 
  PRINTOUT RESUMED BY /GOP
 
- *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  20.3430556    
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0705556    
 
  PARAMETER _PREPTIME =     0.000000000    
 
- PARAMETER _SOLVTIME =     5.000000000    
+ PARAMETER _SOLVTIME =     21.00000000    
 
- PARAMETER _POSTTIME =     1.000000000    
+ PARAMETER _POSTTIME =     0.000000000    
 
- PARAMETER _TOTALTIM =     6.000000000    
+ PARAMETER _TOTALTIM =     21.00000000    
 
- *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.10357470    
+ *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.04222351    
 
- *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.293736000E-01
+ *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.150186600    
  --- Number of total nodes = 31900
- --- Number of total elements = 7101
- --- Element load balance ratio = 1.1035747
- --- Time to combine distributed files = 2.93736E-02
+ --- Number of total elements = 10882
+ --- Element load balance ratio = 1.04222351
+ --- Time to combine distributed files = 0.1501866
 
  EXIT ANSYS WITHOUT SAVING DATABASE
 
@@ -586,7 +703,7 @@
 +--------- D I S T R I B U T E D   A N S Y S   S T A T I S T I C S ------------+
 
 Release: 2020 R1            Build: 20.1       Update: UP20191203   Platform: WINDOWS x64 
-Date Run: 12/08/2020   Time: 20:20     Process ID: 28712
+Date Run: 01/01/2021   Time: 16:04     Process ID: 12396
 Operating System: Windows 10  (Build: 18363)
 
 Processor Model: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
@@ -612,31 +729,31 @@ Input File: dummy.dat
 
   Core                Machine Name   Working Directory
  -----------------------------------------------------
-     0             LAPTOP-TG4TQLEP   D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr26E3
-     1             LAPTOP-TG4TQLEP   D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr26E3
+     0             LAPTOP-TG4TQLEP   D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr3A6A
+     1             LAPTOP-TG4TQLEP   D:\Documentos\Universidad\doble_titulo_francia\EPSA\gitkraken\Modeles-EPSA\Modeles-EPSA\03_Braking System\Disques de frein\2021_valkyriz\_ProjectScratch\Scr3A6A
  
-Latency time from master to core     1 =    1.672 microseconds
+Latency time from master to core     1 =    2.768 microseconds
  
-Communication speed from master to core     1 =  6342.76 MB/sec
+Communication speed from master to core     1 =  3921.09 MB/sec
 
-Total CPU time for main thread                    :        6.0 seconds
-Total CPU time summed for all threads             :        6.7 seconds
+Total CPU time for main thread                    :       20.7 seconds
+Total CPU time summed for all threads             :       22.4 seconds
 
-Elapsed time spent obtaining a license            :        0.7 seconds
-Elapsed time spent pre-processing model (/PREP7)  :        0.1 seconds
-Elapsed time spent solution - preprocessing       :        0.2 seconds
-Elapsed time spent computing solution             :        3.7 seconds
-Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent obtaining a license            :        1.3 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.2 seconds
+Elapsed time spent solution - preprocessing       :        1.2 seconds
+Elapsed time spent computing solution             :       12.5 seconds
+Elapsed time spent solution - postprocessing      :        0.2 seconds
 Elapsed time spent post-processing model (/POST1) :        0.0 seconds
  
 Equation solver used                              :            PCG (symmetric)
-Equation solver computational rate                :       16.1 Gflops
+Equation solver computational rate                :        4.1 Gflops
 
-Maximum total memory used                         :      177.0 MB
+Maximum total memory used                         :      261.0 MB
 Maximum total memory allocated                    :     3136.0 MB
 Total physical memory available                   :         16 GB
 
-Total amount of I/O written to disk               :        0.0 GB
+Total amount of I/O written to disk               :        0.1 GB
 Total amount of I/O read from disk                :        0.0 GB
 
 +------ E N D   D I S T R I B U T E D   A N S Y S   S T A T I S T I C S -------+
@@ -653,11 +770,11 @@ Total amount of I/O read from disk                :        0.0 GB
  |---------------------------------------------------------------------------|
  |                                                                           |
  | Database Requested(-db)  1024 MB    Scratch Memory Requested      1024 MB |
- | Maximum Database Used      25 MB    Maximum Scratch Memory Used     74 MB |
+ | Maximum Database Used      31 MB    Maximum Scratch Memory Used    130 MB |
  |                                                                           |
  |---------------------------------------------------------------------------|
  |                                                                           |
- |        CP Time      (sec) =          6.672       Time  =  20:20:35        |
- |        Elapsed Time (sec) =          9.000       Date  =  12/08/2020      |
+ |        CP Time      (sec) =         22.375       Time  =  16:04:15        |
+ |        Elapsed Time (sec) =         25.000       Date  =  01/01/2021      |
  |                                                                           |
  *---------------------------------------------------------------------------*
