@@ -1,11 +1,11 @@
 % Auteur : PBL
-% Réalisé grâce aux travaux d'Aimery Saulière et celui de Arthur Accart
-%% Dimensionnement du radiateur de Valkyriz (Pierre Bernal)
+% Réalisé grâce aux travaux d'Aimery Saulière et d'Arthur Accart
+%% Dimensionnement du radiateur de Valkyriz (Pierre Bernal PBL)
 clear all 
 close all
 
 %% Données du problème :
-debit_eau = 12/60; %(L/s)
+debit_eau = 7/60; %(L/s)
 Tei = 65 + 273.15; % température de l'eau souhaitée en entrée du radiateur
 Tai = 35 + 273.15; %température de l'air ambiant autour du radiateur
 P =1.013*10^5; % Pression atmosphérique (Pa)
@@ -93,7 +93,7 @@ Aeq = Aw+Aa % surface équivalente d'échange thermique en m2
 
 q = [];
 C_eau = debit_eau*Cp2;
- for i = m_air;
+ for i = m_air
      %kg/s 
      C_air = i*Cp1;
      Cmin = min(C_air,C_eau);
