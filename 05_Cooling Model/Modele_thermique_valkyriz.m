@@ -5,7 +5,11 @@ clear all
 close all
 
 %% Données du problème :
+<<<<<<< Updated upstream
 debit_eau = 7/60; %(L/s)
+=======
+debit_eau = 5/60; %(L/s)
+>>>>>>> Stashed changes
 Tei = 65 + 273.15; % température de l'eau souhaitée en entrée du radiateur
 Tai = 35 + 273.15; %température de l'air ambiant autour du radiateur
 P =1.013*10^5; % Pression atmosphérique (Pa)
@@ -14,7 +18,7 @@ P =1.013*10^5; % Pression atmosphérique (Pa)
 
 %% Détermination puissance à évacuer :
 
-Pu_batterie = 53000; %W
+Pu_batterie = 48000; %W
 Pu_batterie_max = 80000; %W fixé par le règlement
 r_mot = 0.92; % rendement moteur EMRAX 228 dans le pire des cas
 r_cont = 0.97; % rendement contrôleur type BAMOCAR D3
@@ -56,7 +60,7 @@ mu2=8.52*10^(-4); % viscosite dynamique de l'eau (kg.m/s)
 
 e=0.040;% épaisseur du faisceau (A RÉCUPERER CHEZ CONSTRUCTEUR)
 ee=0.001; % largeur du faisceau (A RÉCUPERER CHEZ CONSTRUCTEUR)
-L=0.21; % longueur du faisceau relié à la hauteur ou largeur du radiateur en fonction de si c'est un cross-flow ou down-flow (A DÉCIDER)
+L=0.210; % longueur du faisceau relié à la hauteur ou largeur du radiateur en fonction de si c'est un cross-flow ou down-flow (A DÉCIDER)
 H=0.18; % 3ème dimension du radiateur (À DÉCIDER)
 n = 120; %nombre de faisceau par m (A RÉCUPERER)
 
@@ -86,15 +90,16 @@ e_ailette = 6e-4; %espacement entre ailettes
 n_ailette = H/e_ailette; % estimation du nombre d'ailette entre 2 faisceau
 e_faisceau = 1/n-ee; %espacement entre 2 faisceau 
 
-Aw = n*L*2*l*H; %estimation de la surface d'échange eau/métal
-Aa = 2*(e_faisceau+e_ailette)*l*(n_ailette-1)*(n*L-1); %estimation de la surface d'échange air/métal
-
-Aeq = Aw+Aa % surface équivalente d'échange thermique en m2
+Aeq = 2*(e_faisceau+e_ailette)*l*(n_ailette-1)*(n*L-1); % surface équivalente d'échange thermique en m2
 
 q = [];
 C_eau = debit_eau*Cp2;
+<<<<<<< Updated upstream
  for i = m_air
      %kg/s 
+=======
+ for i = m_air;
+>>>>>>> Stashed changes
      C_air = i*Cp1;
      Cmin = min(C_air,C_eau);
      Cmax = max(C_air,C_eau);
