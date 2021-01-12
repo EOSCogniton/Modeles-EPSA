@@ -5,11 +5,7 @@ clear all
 close all
 
 %% Données du problème :
-<<<<<<< Updated upstream
-debit_eau = 7/60; %(L/s)
-=======
 debit_eau = 5/60; %(L/s)
->>>>>>> Stashed changes
 Tei = 65 + 273.15; % température de l'eau souhaitée en entrée du radiateur
 Tai = 35 + 273.15; %température de l'air ambiant autour du radiateur
 P =1.013*10^5; % Pression atmosphérique (Pa)
@@ -94,12 +90,8 @@ Aeq = 2*(e_faisceau+e_ailette)*l*(n_ailette-1)*(n*L-1); % surface équivalente d
 
 q = [];
 C_eau = debit_eau*Cp2;
-<<<<<<< Updated upstream
  for i = m_air
-     %kg/s 
-=======
- for i = m_air;
->>>>>>> Stashed changes
+     
      C_air = i*Cp1;
      Cmin = min(C_air,C_eau);
      Cmax = max(C_air,C_eau);
@@ -117,6 +109,11 @@ C_eau = debit_eau*Cp2;
  plot(mean_v*3.6,q)
  xlabel("Vitesse véhicule (km/h)")
  ylabel("Puissance thermique évacuée (W)")
+ 
+figure,
+plot(m_air,q)
+xlabel("Débit d'air à travers le radiateur (kg/s)")
+ylabel("Puissance thermique évacuée (W)")
 
 
 %% Tracé courbe 3D Pth = f(débit_air, surface_équivalente) :
@@ -141,4 +138,23 @@ C_eau = debit_eau*Cp2;
 % dimensions hauteur x largeur x épaisseur (A FAIRE EN V0.2)
 
 %% DIMENSIONNEMENT VASES D'EXPANSIONS (A FAIRE EN V.1)
+
+lambda=2.6*10^(-4); %coefficient de dilatation thermique de l'eau (SI)
+
+Tmin=0; %température minimale de l'eau du circuit de refroidissement
+
+Tmax=130; %température maximale de l'eau du circuit de refroidissement
+
+V0=; %volume initial du circuit de refroidissement (en litres)
+
+DV=V0*lambda*(Tmax-Tmin)*10^(-3) % variation de volume de l'eau contenue dans le circuit de refroidissement (en m^3)
+
+k=2; %coefficient de sécurité
+
+V=k*DV*10^6; % volume du vase d'expansion (cm3)
+
+hh= % hauteur du vase d'expansion (en cm)
+
+d=2*sqrt(V/(pi*hh)) %diamètre de la base du vase d'expansion (en cm)
+
 
