@@ -56,8 +56,8 @@ mu2=8.52*10^(-4); % viscosite dynamique de l'eau (kg.m/s)
 
 e=0.040;% épaisseur du faisceau (A RÉCUPERER CHEZ CONSTRUCTEUR)
 ee=0.001; % largeur du faisceau (A RÉCUPERER CHEZ CONSTRUCTEUR)
-L=0.190; % longueur du faisceau relié à la hauteur ou largeur du radiateur en fonction de si c'est un cross-flow ou down-flow (A DÉCIDER)
-H=0.220; % 3ème dimension du radiateur (À DÉCIDER)
+L=0.220; % longueur du faisceau relié à la hauteur ou largeur du radiateur en fonction de si c'est un cross-flow ou down-flow (A DÉCIDER)
+H=0.190; % 3ème dimension du radiateur (À DÉCIDER)
 n = 120; %nombre de faisceau par m (A RÉCUPERER)
 
 d2=ee; % longueur caractéristique de l'écoulement d'eau dans le radiateur
