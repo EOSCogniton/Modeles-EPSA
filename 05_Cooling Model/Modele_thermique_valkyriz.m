@@ -56,8 +56,8 @@ mu2=8.52*10^(-4); % viscosite dynamique de l'eau (kg.m/s)
 
 e=0.040;% épaisseur du faisceau (A RÉCUPERER CHEZ CONSTRUCTEUR)
 ee=0.001; % largeur du faisceau (A RÉCUPERER CHEZ CONSTRUCTEUR)
-L=0.210; % longueur du faisceau relié à la hauteur ou largeur du radiateur en fonction de si c'est un cross-flow ou down-flow (A DÉCIDER)
-H=0.18; % 3ème dimension du radiateur (À DÉCIDER)
+L=0.190; % longueur du faisceau relié à la hauteur ou largeur du radiateur en fonction de si c'est un cross-flow ou down-flow (A DÉCIDER)
+H=0.220; % 3ème dimension du radiateur (À DÉCIDER)
 n = 120; %nombre de faisceau par m (A RÉCUPERER)
 
 d2=ee; % longueur caractéristique de l'écoulement d'eau dans le radiateur
@@ -77,7 +77,7 @@ h2=lambda2*Nu2/d2 % coefficient de Newton entre le radiateur et l'eau de refroid
 % h2 >> h1 donc on peut supposer que l'alu du radiateur est à la
 % température de l'eau
 
-mean_v = [1 : 5 : 101]/3.6; %vecteur vitesse du véhicule
+mean_v = [1 : 0.1 : 101]/3.6; %vecteur vitesse du véhicule
 m_air = rho1*L*H.*mean_v; %kg/s vecteur débit d'air à travers le radiateur 
 vect_surface = [0 : 0.4 : 8]; %m2 vecteur surface équivalente d'échange thermique = environ surface de toutes les ailettes
 %% Obtention courbe Pth = f(débit_air) pour une dimension de radiateur DONNÉE :
@@ -85,6 +85,7 @@ l = e; %epaisseur
 e_ailette = 6e-4; %espacement entre ailettes
 n_ailette = H/e_ailette; % estimation du nombre d'ailette entre 2 faisceau
 e_faisceau = 1/n-ee; %espacement entre 2 faisceau 
+
 
 Aeq = 2*(e_faisceau+e_ailette)*l*(n_ailette-1)*(n*L-1); % surface équivalente d'échange thermique en m2
 
@@ -139,22 +140,22 @@ ylabel("Puissance thermique évacuée (W)")
 
 %% DIMENSIONNEMENT VASES D'EXPANSIONS (A FAIRE EN V.1)
 
-lambda=2.6*10^(-4); %coefficient de dilatation thermique de l'eau (SI)
-
-Tmin=0; %température minimale de l'eau du circuit de refroidissement
-
-Tmax=130; %température maximale de l'eau du circuit de refroidissement
-
-V0=; %volume initial du circuit de refroidissement (en litres)
-
-DV=V0*lambda*(Tmax-Tmin)*10^(-3) % variation de volume de l'eau contenue dans le circuit de refroidissement (en m^3)
-
-k=2; %coefficient de sécurité
-
-V=k*DV*10^6; % volume du vase d'expansion (cm3)
-
-hh= % hauteur du vase d'expansion (en cm)
-
-d=2*sqrt(V/(pi*hh)) %diamètre de la base du vase d'expansion (en cm)
+% lambda=2.6*10^(-4); %coefficient de dilatation thermique de l'eau (SI)
+% 
+% Tmin=0; %température minimale de l'eau du circuit de refroidissement
+% 
+% Tmax=130; %température maximale de l'eau du circuit de refroidissement
+% 
+% V0=; %volume initial du circuit de refroidissement (en litres)
+% 
+% DV=V0*lambda*(Tmax-Tmin)*10^(-3) % variation de volume de l'eau contenue dans le circuit de refroidissement (en m^3)
+% 
+% k=2; %coefficient de sécurité
+% 
+% V=k*DV*10^6; % volume du vase d'expansion (cm3)
+% 
+% hh= % hauteur du vase d'expansion (en cm)
+% 
+% d=2*sqrt(V/(pi*hh)) %diamètre de la base du vase d'expansion (en cm)
 
 
