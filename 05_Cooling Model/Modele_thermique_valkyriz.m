@@ -112,8 +112,8 @@ C_eau = debit_eau*Cp2;
  ylabel("Puissance thermique évacuée (W)")
  
 figure,
-plot(m_air,q)
-xlabel("Débit d'air à travers le radiateur (kg/s)")
+plot(m_air*3600/rho1,q)
+xlabel("Débit d'air à travers le radiateur (m3/h)")
 ylabel("Puissance thermique évacuée (W)")
 
 
@@ -140,22 +140,22 @@ ylabel("Puissance thermique évacuée (W)")
 
 %% DIMENSIONNEMENT VASES D'EXPANSIONS (A FAIRE EN V.1)
 
-% lambda=2.6*10^(-4); %coefficient de dilatation thermique de l'eau (SI)
-% 
-% Tmin=0; %température minimale de l'eau du circuit de refroidissement
-% 
-% Tmax=130; %température maximale de l'eau du circuit de refroidissement
-% 
-% V0=; %volume initial du circuit de refroidissement (en litres)
-% 
-% DV=V0*lambda*(Tmax-Tmin)*10^(-3) % variation de volume de l'eau contenue dans le circuit de refroidissement (en m^3)
-% 
-% k=2; %coefficient de sécurité
-% 
-% V=k*DV*10^6; % volume du vase d'expansion (cm3)
-% 
-% hh= % hauteur du vase d'expansion (en cm)
-% 
-% d=2*sqrt(V/(pi*hh)) %diamètre de la base du vase d'expansion (en cm)
+lambda=2.6*10^(-4); %coefficient de dilatation thermique de l'eau (SI)
+
+Tmin=0; %température minimale de l'eau du circuit de refroidissement
+
+Tmax=100; %température maximale de l'eau du circuit de refroidissement
+
+V0= 3; %volume initial du circuit de refroidissement (en litres)
+
+DV=V0*lambda*(Tmax-Tmin)*10^(-3) % variation de volume de l'eau contenue dans le circuit de refroidissement (en m^3)
+
+k=2; %coefficient de sécurité
+
+V=k*DV*10^6; % volume du vase d'expansion (cm3)
+
+hh=10 % hauteur du vase d'expansion (en cm)
+
+d=2*sqrt(V/(pi*hh)) %diamètre de la base du vase d'expansion (en cm)
 
 
