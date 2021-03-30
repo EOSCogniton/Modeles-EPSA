@@ -1,14 +1,6 @@
-pour toutes questions, s'adresser à Matthieu CORNU
+Pour plus de détails, s'adresser à Matthieu Cornu (ce sera avec plaisir), les données sont prises du PDF C19_Tire_Documentation
 
- /\
-/ !\ j'ai un peu enchainer l'écriture des codes et ceux vraiment utiles ("fait tout") ne reprend pas les anciennes fonctions donc des erreurs peuvent être présentes dans certains code
-et des formules peuvent être différentes d'un code à l'autre (donc à vérifier).
+-flat : donne la force latérale max qu'est capable de supporter un pneu en fonction de sa charge (déterminé avec la page 13) (directement intégré dans le code "fait tout")
+-fait tout : le code est commenté directement
 
-La fonction flat donne la force latérale que tient un pneu sous chargé N (en argument de la fonction) d'après la documentation C19.
-
-La fonction flat_voiture donne la force latérale que peut développer la voiture (dont les paramètres sont fixés dans le code) en fonction de l'accélération latérale que cette dernière subit.
-dans ces paramètres, il y a notament des hauteurs de centre de roulis, raideurs de suspension ... que l'on cherche en fait à déterminer pour obtenir un comportement cible.
-
-
-Le code "fait tout" fait tout : c'est détaillé dans le code et les calculs sont globalements les mêmes que dans la fonction flat_voiture.
-Il permet en autre de trouver la répartition avant/arrière cible du transfert de charge, la raideur de la BAR à l'avant etc.
+-raideur et rzdieurs : permettent de calculer le diamètre de la BAR pour différentes géométries (le nom de variable des excels sont celles du schéma sur l'image "calcul"

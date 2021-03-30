@@ -8,15 +8,15 @@ b = 690e-3 ; %distance entre essieu arrière et CG (en m)
 e = 1570e-3 ; %empattement (en m)
 v = 1240e-3 ; %voie (en m)
 h = 290e-3 ;
-Hf = 84.8e-3 ;
-Hr = 59.5e-3 ;
-Dh = h - (b*Hf + (e-b)*Hr)/e ;
-kf = 10900 ;
-kr = 13200 ;
-lf = 0 ;
-lr = 0 ;
-Lf = lf + 0.5*kf*v^2 ;
-Lr = lr + 0.5*kr*v^2 ;
+% Hf = 84.8e-3 ;
+% Hr = 59.5e-3 ;
+% Dh = h - (b*Hf + (e-b)*Hr)/e ;
+% kf = 10900 ;
+% kr = 13200 ;
+% lf = 0 ;
+% lr = 0 ;
+% Lf = lf + 0.5*kf*v^2 ;
+% Lr = lr + 0.5*kr*v^2 ;
 
 
 %% initialisation (laurent)
@@ -103,20 +103,22 @@ legend({'avant','arrière'},'Location','southwest')
 
 %% recherche de la raideur de BAR
 v = 1240e-3 ;
-b = 690e-3 ; 
-e = 1570e-3 ; 
+b = 690e-3 ;
+e = 1570e-3 ;
 h = 290e-3 ;
-Hr = 50e-3 ;
-Hf = 30e-3 ;
-%Hr = 59.5e-3 ;
-%Hf = 84.8e-3 ;
+Hr = 95e-3 ;
+Hf = 67e-3 ;
 Dh = h - (b*Hf + (e-b)*Hr)/e ;
 kt = 80000 ; %tire stiffness
-kf = 10900 ; %front roll rate
-kr = 13200 ; %rear roll rate
+kf = 10900 ; %front ride rate
+kr = 13200 ; %rear ride rate
 kwf = kt*kf/(kt-kf) ; %front wheel rate
 kwr = kt*kr/(kt-kr) ; %rear wheel rate
-lf = linspace(0,80000,100) ; %raideur associée à la BAR (en N.m)
+% kwf = 175*175,126835 ;
+% kwr = 200*175,126835 ;
+% kf = kt*kwf/(kt+kwf) ;
+% kr = kt*kwr/(kt+kwr) ;
+lf = linspace(0,100000,100) ; %raideur associée à la BAR (en N.m)
 Lf = ((lf + 0.5*kwf*v^2).^(-1) + (0.5*kt*v^2)^(-1)).^(-1);
 Lr = 0.5*kr*v^2 ; % =(0.5*kwr*v^2)^(-1) + (0.5*kt*v^2)^(-1)).^(-1)
 Af = zeros(1,100) ;  %accel de décrochage essieu avant
@@ -152,13 +154,16 @@ for j=1:100
     Ar(j) = Ay(i) ;
 end
 
-plot(lf*2*pi/360,Af,'-b') ;
+% plot(lf*2*pi/360,Af,'-g') ;
+% hold on ;
+% plot(lf*2*pi/360,Ar,'-y') ;
+plot(lf,Af,'-b') ;
 hold on ;
-plot(lf*2*pi/360,Ar,'-r') ;
-xlabel('raideur antiroulis liée à la BAR (en N.m/deg)') ;
+plot(lf,Ar,'-r') ;
+% xlabel('raideur antiroulis liée à la BAR (en N.m/deg)') ;
+xlabel('raideur antiroulis liée à la BAR (en N.m/rad)') ;
 ylabel('accel de décrochage de l essieu (en g)') ;
-legend({'avant','arrière'},'Location','southwest')
-
+legend({'avant','arrière'},'Location','southwest') ;
 %% vecteurs pour la tracé (laurent)
 Ay = linspace(0,1.3,100) ;
 Fy_rec_f = zeros(1,100) ;
@@ -202,9 +207,9 @@ legend({'Force latérale total requise','Force latérale totale disponible','For
 
 %% sus
 
-f = linspace(2,2.5,100) ;
-k_f = ((2*pi*f).^2)*(241*0.44*0.5+16) ;
-k_r = ((2*pi*f).^2)*(241*0.56*0.5+16) ;
+f = linspace(1,2.5,100) ;
+k_f = ((2*pi*f).^2)*(320*0.44*0.5+16) ;
+k_r = ((2*pi*f).^2)*(320*0.56*0.5+16) ;
 
 plot(f,k_f,'r') ;
 hold on ;
