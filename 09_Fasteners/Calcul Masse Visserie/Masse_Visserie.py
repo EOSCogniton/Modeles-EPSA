@@ -5,7 +5,6 @@ Created on Mon May  3 10:47:31 2021
 @author: MMA
 """
 import csv
-import pandas as pd
 import sqlite3
 import numpy as np
 
@@ -16,7 +15,7 @@ def Conversion(m):
     m2 = float(str(m1).replace(",", ".").rstrip())
     return m2
 
-#Masse_Rondelles
+# #Masse_Rondelles
 conn = sqlite3.connect('CatalogueVisserie.sqlite')
 c = conn.cursor()
 c.execute("SELECT NAME, diametre_interieur, diametre_exterieur, epaisseur FROM 'Rondelles'")
@@ -37,7 +36,7 @@ def Rondelles(m, L):
         csvwriter = csv.writer(csvfile) 
         csvwriter.writerow(['Name', 'Masse']) 
         csvwriter.writerows(M)
-# Rondelles(m_vol_acier, R)
+# # Rondelles(m_vol_acier, R)
 
 # #Masse_Ecrous
 conn = sqlite3.connect('CatalogueVisserie.sqlite')
@@ -52,16 +51,17 @@ def Ecrous(m, L):
     M = []
     for i in range(n):
         d_int = Conversion(L[i][1])
-        larg = Conversion(L[i][2])
-        h = Conversion(L[i][3])
-        V = h*(((3*np.sqrt(3)/2)*12*(larg/np.sqrt(3))**2)-np.pi*(d_int/2)**2)
+        larg = Conversion(L[i][3])
+        h = Conversion(L[i][2])
+        V = h*(((3*np.sqrt(3)/2)*(larg/np.sqrt(3))**2)-np.pi*(d_int/2)**2)
         M.append([L[i][0], m*V])
+    return M
     with open('Masse_Ecrous.csv', 'w') as csvfile: 
         csvwriter = csv.writer(csvfile) 
         csvwriter.writerow(['Name', 'Masse']) 
         csvwriter.writerows(M)
 
-# Ecrous(m_vol_acier, E)
+Ecrous(m_vol_acier, E)
 
 # Masse_EcrouNS
 conn = sqlite3.connect('CatalogueVisserie.sqlite')
