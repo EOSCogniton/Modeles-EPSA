@@ -5,7 +5,7 @@ clc
 %% Paramètres d'entrée
 
 % Véhicule 
-mv = 235; % Masse du véhicule en kg 
+mv = 220; % Masse du véhicule en kg 
 mp = 80; % Masse du pilote équipé en kg 
 mt = mv + mp; % Masse totale en kg 
 h = 300; % Hauteur du CdG en mm 

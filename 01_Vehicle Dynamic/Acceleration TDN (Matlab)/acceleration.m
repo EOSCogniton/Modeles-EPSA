@@ -446,5 +446,5 @@ grid on
 title('Couple à la roue');
 xlabel('Vitesse (km/h)');
 ylabel('Couple à la roue (Nm)');
-legend('1er rapport', '2ème rapport', '3ème rapport', '4éme rapport', '5ème rapport', '6ème rapport');
+legend('1er rapport', '2ème rapport', '3ème rapport', '4éme rapport', '5ème rapport', '6ème rapport';
 

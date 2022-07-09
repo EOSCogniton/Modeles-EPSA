@@ -85,12 +85,12 @@ clc
     Fpedalekg = [0:pas:200]; % Force exercée sur la pédale en kg (Newton/G)
 
 % Véhicule
-    mv = 235; % Masse du véhicule en kg
-    mp = 60; % Masse du pilote équipé en kg
+    mv = 220; % Masse du véhicule en kg
+    mp = 70; % Masse du pilote équipé en kg
     mt = mv+mp; % Masse totale en kg
-    h = 305; % Hauteur du CdG en mm
-    e = 1635; % Empattement en mm
-    repstatav = 0.49; % Répartition de masse statique du véhicule
+    h = (0.42*70+0.310*223)/mt; % Hauteur du CdG en mm
+    e = 1575; % Empattement en mm
+    repstatav = 0.45; % Répartition de masse statique du véhicule
     
 % Pneus
     etatsol = 1 ; % Coeff de dégradation de mu selon la nature du sol
