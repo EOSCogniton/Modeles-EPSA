@@ -83,9 +83,9 @@ for j=1:100
         Fy_max_r(i) = Fymax_rl + Fymax_rr ;
     end
     i = 1 ;
-    while Fy_rec_f(i) < Fy_max_f(i)
-        i = i+1 ;
-    end
+    %while Fy_rec_f(i) < Fy_max_f(i)
+    %    i = i+1 ;
+    %end
     Af(j) = Ay(i) ;
     i = 1 ;
     while Fy_rec_r(i) < Fy_max_r(i)
