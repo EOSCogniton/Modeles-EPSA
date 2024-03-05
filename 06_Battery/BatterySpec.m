@@ -23,7 +23,7 @@ NmA = 0.75; % N.m/Aph (Torque par ampère)
 
 
 %%%%
-v_max = 30; % km/h (vitesse max visée) 
+v_max = 0:5:100 % km/h (vitesse max visée) 
 t = 10; % s (temps visé pour passer de 0 à v km/h)
 %%%%
 
@@ -43,9 +43,9 @@ w_s = v_max/D_roue *2; % rad/s (vitesse de rotation des roues à v)
 
 m_s = w_s/gear_ratio; % rad/s (vitesse moteur)
 
-Pnec = m_s * m_t; % Puissance totale nécessaire
+Pnec = m_s .* m_t; % Puissance totale nécessaire
 
-Vnec = Pnec/m_I/sqrt(3); % Tension en sortie de batterie nécessaire
+Vnec = Pnec./m_I/sqrt(3); % Tension en sortie de batterie nécessaire
 
 disp('Temps (s) :')
 disp(t)
@@ -59,6 +59,19 @@ disp('Tension en sortie de batterie nécessaire (V) :')
 disp(Vnec)
 disp('Courant en sortie de batterie nécessaire (A) :')
 disp(m_I)
+
+figure
+hold on
+yyaxis left
+ylabel('Tension (V)')
+plot(v_max,Vnec,'b')
+yyaxis right
+ylabel('Courant (A)')
+plot(v_max,m_I,'r')
+legend('Tension nécessaire (V)','Courant nécessaire (A)')
+title('Courbe de courants/tensions pour t='+string(t)+' s')
+xlabel('Vitesse de 0 à 100 km/h')
+
 disp('---------------------------------------------------------')
 
 
