@@ -1,9 +1,9 @@
 %%% Calculs des caractéristiques nécessaires en puissance, couple, courant,
 %%% tension, et architecture pour atteindre certaines performances avec la
 %%% voiture
-
-clear
-close all
+% 
+% clear
+% close all
 
 % Le script suivant permet de simuler une acceleration sur une distance
 % donnee. De nombreuses ameliorations peuvent etre apportees par la suite.
@@ -15,7 +15,7 @@ close all
 
 %%%% Paramètres du programme
 
-vmax = 100; %km/h (vitesse maximale pour les courbes
+vmax = 100; %km/h (vitesse maximale pour les courbes)
 pas_v = 5 ; %km/h (vitesse entre chaque point de la courbe)
 
 t = 10; % s (temps visé pour passer de 0 à v km/h)
@@ -30,10 +30,13 @@ Z_motor = 13;
 
 gear_ratio = Z_motor/Z_roue; % en comptant les dents sur valkyriz (à vérifier)
 
-m_v = 230; %kg (masse à vide)
-mp = 80; %kg (masse pilote)
+SCx = 0.66; % m² (Issu des essais d'invictus, à redémontrer via simulation)
+rho_a = 1.225; % kg/m³
 
-m = m_v + mp; %kg (masse totale)
+m_v = 230; %kg (masse à vide)
+m_p = 80; %kg (masse pilote)
+
+m = m_v + m_p; %kg (masse totale)
 
 D_roue = 0.52; % m (diametre exterieur de la roue)
 L = 75; % m (Longueur de la piste)
@@ -48,7 +51,7 @@ v = 0:pas_v:vmax;
 
 a =  v/t/3.6;
 
-F = m * a;
+F = m * a + SCx * 1/2 * rho_a * (1/3.6)*v.^2;
 
 w_t = F * D_roue/2; % N.m (Wheel torque) 
 

@@ -13,8 +13,8 @@ v_min = 1 # km/h (vitesse minimale pour les courbes)
 pas_v = 1  # km/h (vitesse entre chaque point de la courbe)
 t = 10  # s (temps visé pour passer de 0 à v km/h)
 
-v_calcul = 30 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
-module_max = 7 # Nombre de modules maximum, nécessaire tant qu'on a pas optimisé le programme
+v_calcul = 35 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
+module_max = 7 # Nombre de modules maximum, nécessaire tant qu'on n'a pas optimisé le programme
 
 
 dict_mode = {'d':'debouts','c':'de côté','p':'à plat'} # d,c,p pour debout, couché, à plat (orientation des modules pour les calculs)
@@ -66,6 +66,10 @@ D_roue = 0.52  # m (diamètre extérieur de la roue)
 L = 75  # m (Longueur de la piste)
 v_th = L / t * 2 * 3.6  # juste pour info
 NmA = 0.75  # N.m/Aph (Torque par ampère)
+mot_eff = 0.95 # (Efficacité du moteur)
+
+SCx = 0.66 # m² (Issu des essais d'invictus, à redémontrer via simulation)
+rho_a = 1.225 # kg/m³ (Densité de l'air)
 
 
 import copy as cop
@@ -176,13 +180,13 @@ def final_minimal_v(all_chemins):
 
 v = np.arange(v_min, v_max + 1, pas_v)
 a = v / t / 3.6
-F = m * a
+F = m * a + 1/2 * rho_a * SCx * (1/3.6)*v**2
 w_t = F * D_roue / 2  # N.m (Wheel torque)
 m_t = w_t * gear_ratio  # N.m (motor torque needed)
 m_I = m_t / NmA  # A (courant nécessaire par phase)
 w_s = v / D_roue * 2  # rad/s (vitesse de rotation des roues à v)
 m_s = w_s / gear_ratio  # rad/s (vitesse moteur)
-Pnec = m_s * m_t  # W Puissance totale nécessaire
+Pnec = m_s * m_t / mot_eff  # W Puissance totale nécessaire
 Vnec = Pnec / m_I / np.sqrt(3)  # V Tension en sortie de batterie nécessaire
 n_v_cell = np.ceil(Vnec / cell_V)  # nombre de cellule nécessaire en série
 n_a_cell = np.ceil(m_I / cell_A)  # nombre de cellule nécessaire en parallèle
