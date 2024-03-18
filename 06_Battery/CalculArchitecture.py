@@ -2,20 +2,20 @@
 ### tension, et architecture pour atteindre certaines performances avec la
 ### voiture
 
-# Ce script est utile pour déterminer le couple et la puissance moteur
-# nécessaires pour atteindre certaines performances
+# Ce script est utile pour déterminer l'architecture batterie minimale 
+# pour atteindre certaines performances
+
+# Les courbes de tensions/courants et puissance/couple nécessaire en fonction
+# de la vitesse sont accessible via un matlab appelé "BatterySpec.m"
 
 
 ## Paramètres
 # Paramètres du programme
-v_max = 100  # km/h (vitesse maximale pour les courbes)
-v_min = 1 # km/h (vitesse minimale pour les courbes)
-pas_v = 1  # km/h (vitesse entre chaque point de la courbe)
 t = 10  # s (temps visé pour passer de 0 à v km/h)
-
-v_calcul = 35 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
+v = 20 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
 module_max = 7 # Nombre de modules maximum, nécessaire tant qu'on n'a pas optimisé le programme
 
+battery_V_min = 150 # V (Tension minimale de la batterie)
 
 dict_mode = {'d':'debouts','c':'de côté','p':'à plat'} # d,c,p pour debout, couché, à plat (orientation des modules pour les calculs)
 dict_orientation = {'l':'largeur','L':'longueur'} # L ou l pour orienté selon la Longueur ou la largeur
@@ -178,9 +178,8 @@ def final_minimal_v(all_chemins):
 
 ## Début des calculs
 
-v = np.arange(v_min, v_max + 1, pas_v)
 a = v / t / 3.6
-F = m * a + 1/2 * rho_a * SCx * (1/3.6)*v**2
+F = m * a + 1/2 * rho_a * SCx * (v/3.6)**2
 w_t = F * D_roue / 2  # N.m (Wheel torque)
 m_t = w_t * gear_ratio  # N.m (motor torque needed)
 m_I = m_t / NmA  # A (courant nécessaire par phase)
@@ -188,53 +187,15 @@ w_s = v / D_roue * 2  # rad/s (vitesse de rotation des roues à v)
 m_s = w_s / gear_ratio  # rad/s (vitesse moteur)
 Pnec = m_s * m_t / mot_eff  # W Puissance totale nécessaire
 Vnec = Pnec / m_I / np.sqrt(3)  # V Tension en sortie de batterie nécessaire
-n_v_cell = np.ceil(Vnec / cell_V)  # nombre de cellule nécessaire en série
+n_v_cell = np.ceil(max(battery_V_min,Vnec) / cell_V)  # nombre de cellule nécessaire en série
 n_a_cell = np.ceil(m_I / cell_A)  # nombre de cellule nécessaire en parallèle
 
 # Affichage des résultats
 print('Temps (s) :', t)
-print('Vitesse pour optimisation volume (km/h) :', v_calcul)
+print('Vitesse pour optimisation volume (km/h) :', v)
 
-# Tracer des courbes
-# fig, ax1 = plt.subplots()
-# ax2 = ax1.twinx()
-# ax1.plot(v, m_t, 'b', label='Couple (N.m)')
-# ax2.plot(v, Pnec, 'r', label='Puissance (W)')
-# ax1.set_ylabel('Couple (N.m)',color='b')
-# ax2.set_ylabel('Puissance (W)',color='r')
-# ax1.legend(loc='upper left')
-# ax2.legend(loc='upper center')
-# plt.title('Courbe de Couple/Puissance pour t= {}s'.format(t))
-# ax1.set_xlabel('Vitesse de {} à {} km/h'.format(v_min,v_max))
-
-# fig, ax1 = plt.subplots()
-# ax2 = ax1.twinx()
-# ax1.plot(v, Vnec, 'b', label='Tension (V)')
-# ax2.plot(v, m_I, 'r', label='Courant (A)')
-# ax1.set_ylabel('Tension (V)',color='b')
-# ax2.set_ylabel('Courant (A)',color='r')
-# ax1.legend(loc='upper left')
-# ax2.legend(loc='upper center')
-# plt.title('Courbe de courants/tensions pour t= {}s'.format(t))
-# ax1.set_xlabel('Vitesse de {} à {} km/h'.format(v_min,v_max))
-
-# fig, ax1 = plt.subplots()
-# ax2 = ax1.twinx()
-# ax1.plot(v, n_v_cell, 'b', label='Série')
-# ax2.plot(v, n_a_cell, 'r', label='Parallèle')
-# ax1.set_ylabel('Nombre de cellule en série',color='b')
-# ax2.set_ylabel('Nombre de cellule en parallèle',color='r')
-# ax1.legend(loc='upper left')
-# ax2.legend(loc='upper center')
-# plt.title('Besoin en cellule séries/parallèles pour t= {}s'.format(t))
-# ax1.set_xlabel('Vitesse de {} à {} km/h'.format(v_min,v_max))
-# plt.show()
-
-
-vit_indice = int(np.ceil((v_calcul-v[0])/pas_v))
-
-p=int(n_a_cell[vit_indice])
-smax=int(n_v_cell[vit_indice])
+p=int(n_a_cell)
+smax=int(n_v_cell)
 
 modes=["d","c","p"]
 orientations=['l','L']
@@ -294,6 +255,7 @@ try :
     resfinal = final_minimal_v(minichem)
     r=result_cara[resfinal[2]]
     print("Architecture finale en {}s{}p, avec {} modules.".format(r[1],r[2],r[3]))
+    print("Tension de la batterie : {} V".format(r[1]*cell_V*r[3]))
     print("Dimensions d'un module : {}x{}x{}mm (lxLxh), pour une tension de {}V.".format(int(calcul_largeur(r[2])),int(calcul_longueur(r[1])),int(hauteur-separation),r[1]*cell_V))
     print("Les modules sont placés {}, dans le sens de la {}, selon les coordonnées suivantes : {}".format(dict_mode[r[4]],dict_orientation[r[5]],resfinal[1][0]))
     print("Ils occupent une enveloppe totale de {}L, avec comme point en extrémité de l'enveloppe : ({},{},{})".format(round(r[0][0]*10**(-6),2),int(r[0][1]),int(r[0][2]),int(r[0][3])))
