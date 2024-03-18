@@ -12,10 +12,8 @@
 ## Paramètres
 # Paramètres du programme
 t = 10  # s (temps visé pour passer de 0 à v km/h)
-v = 20 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
+v = 30 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
 module_max = 7 # Nombre de modules maximum, nécessaire tant qu'on n'a pas optimisé le programme
-
-battery_V_min = 150 # V (Tension minimale de la batterie)
 
 dict_mode = {'d':'debouts','c':'de côté','p':'à plat'} # d,c,p pour debout, couché, à plat (orientation des modules pour les calculs)
 dict_orientation = {'l':'largeur','L':'longueur'} # L ou l pour orienté selon la Longueur ou la largeur
@@ -23,7 +21,9 @@ dict_orientation = {'l':'largeur','L':'longueur'} # L ou l pour orienté selon l
 
 # Paramètres de la cellule
 cell_A = 10  # A (décharge en pic)
+cell_V_max = 4.2 # V (Tension maximale après charge) 
 cell_V = 3.6  # V (Tension nominale)
+cell_V_cutoff = 2.5 # V (Tension minimale à la décharge)
 cell_C = 3000 # mAh (Capacité de la cellule)
 cell_h = 65  # mm (hauteur)
 cell_d = 18.5  # mm (diamètre)
@@ -187,7 +187,7 @@ w_s = v / D_roue * 2  # rad/s (vitesse de rotation des roues à v)
 m_s = w_s / gear_ratio  # rad/s (vitesse moteur)
 Pnec = m_s * m_t / mot_eff  # W Puissance totale nécessaire
 Vnec = Pnec / m_I / np.sqrt(3)  # V Tension en sortie de batterie nécessaire
-n_v_cell = np.ceil(max(battery_V_min,Vnec) / cell_V)  # nombre de cellule nécessaire en série
+n_v_cell = np.ceil(Vnec / cell_V_cutoff)  # nombre de cellule nécessaire en série
 n_a_cell = np.ceil(m_I / cell_A)  # nombre de cellule nécessaire en parallèle
 
 # Affichage des résultats
@@ -206,7 +206,7 @@ for mode in modes:
     for orientation in orientations:
         for m in range(1,module_max+1):
             s=int(np.ceil(smax/m))
-            if s*p*cell_E <= module_E_max and s*cell_V <= module_V_max:  
+            if s*p*cell_E <= module_E_max and s*cell_V_max <= module_V_max:  
                 if mode == "d" and orientation == 'L':
                     largeur_mod=hauteur
                     longueur_mod=calcul_largeur(p)
@@ -255,8 +255,9 @@ try :
     resfinal = final_minimal_v(minichem)
     r=result_cara[resfinal[2]]
     print("Architecture finale en {}s{}p, avec {} modules.".format(r[1],r[2],r[3]))
-    print("Tension de la batterie : {} V".format(r[1]*cell_V*r[3]))
-    print("Dimensions d'un module : {}x{}x{}mm (lxLxh), pour une tension de {}V.".format(int(calcul_largeur(r[2])),int(calcul_longueur(r[1])),int(hauteur-separation),r[1]*cell_V))
+    print("Tensions de la batterie : {}V nominal, {}V maximum, {}V minimum.".format(round(r[1]*cell_V*r[3],1),round(r[1]*cell_V_max*r[3],1),round(r[1]*cell_V_cutoff*r[3],1)))
+
+    print("Dimensions d'un module : {}x{}x{}mm (lxLxh), pour une tension de {}V nominal, {}V max, {}V min.".format(int(calcul_largeur(r[2])),int(calcul_longueur(r[1])),int(hauteur-separation),round(r[1]*cell_V,1),round(r[1]*cell_V_max,1),round(r[1]*cell_V_cutoff,1)))
     print("Les modules sont placés {}, dans le sens de la {}, selon les coordonnées suivantes : {}".format(dict_mode[r[4]],dict_orientation[r[5]],resfinal[1][0]))
     print("Ils occupent une enveloppe totale de {}L, avec comme point en extrémité de l'enveloppe : ({},{},{})".format(round(r[0][0]*10**(-6),2),int(r[0][1]),int(r[0][2]),int(r[0][3])))
 
