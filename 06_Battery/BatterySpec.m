@@ -2,8 +2,8 @@
 %%% tension, et architecture pour atteindre certaines performances avec la
 %%% voiture
 % 
-% clear
-% close all
+clear
+close all
 
 % Le script suivant permet de simuler une acceleration sur une distance
 % donnee. De nombreuses ameliorations peuvent etre apportees par la suite.
@@ -16,9 +16,9 @@
 %%%% Paramètres du programme
 
 vmax = 100; %km/h (vitesse maximale pour les courbes)
-pas_v = 5 ; %km/h (vitesse entre chaque point de la courbe)
+pas_v = 1 ; %km/h (vitesse entre chaque point de la courbe)
 
-t = 10; % s (temps visé pour passer de 0 à v km/h)
+t = 5; % s (temps visé pour passer de 0 à v km/h)
 
 %%%% Paramètres de la voiture
 %Cellule
@@ -30,13 +30,21 @@ Z_motor = 13;
 
 gear_ratio = Z_motor/Z_roue; % en comptant les dents sur valkyriz (à vérifier)
 
+eta_m = 0.92 ; % rendement moteur
+
 SCx = 0.66; % m² (Issu des essais d'invictus, à redémontrer via simulation)
 rho_a = 1.225; % kg/m³
+
+mu_roll = 0.02; % (arbitraire, à déterminer avec nos pneus)
+
+Sf = 1 ; %(Safety factor, pour prendre des marges)
 
 m_v = 230; %kg (masse à vide)
 m_p = 80; %kg (masse pilote)
 
 m = m_v + m_p; %kg (masse totale)
+
+g=9.81; %m/s² (accélération terrestre)
 
 D_roue = 0.52; % m (diametre exterieur de la roue)
 L = 75; % m (Longueur de la piste)
@@ -51,7 +59,13 @@ v = 0:pas_v:vmax;
 
 a =  v/t/3.6;
 
-F = m * a + SCx * 1/2 * rho_a * (1/3.6)*v.^2;
+Fair=SCx * 1/2 * rho_a * (1/3.6)*v.^2;
+
+Froll=mu_roll*m*g;
+
+Facc = m * a;
+
+F = Sf*(Facc + Fair + Froll);
 
 w_t = F * D_roue/2; % N.m (Wheel torque) 
 
@@ -63,9 +77,9 @@ w_s = v/D_roue *2; % rad/s (vitesse de rotation des roues à v)
 
 m_s = w_s/gear_ratio; % rad/s (vitesse moteur)
 
-Pnec = m_s .* m_t; %W Puissance totale nécessaire
+Pnec = m_s .* m_t; %W Puissance moteur totale nécessaire
 
-Vnec = Pnec./m_I/sqrt(3); %V Tension en sortie de batterie nécessaire
+Vnec = Pnec./m_I/sqrt(3)/eta_m; %V Tension en sortie de batterie nécessaire
 
 n_v_cell = ceil(Vnec./cell_V) ; % nombre de cellule nécessaire en série
 
@@ -85,6 +99,7 @@ disp(vmax)
 % disp(m_I)
 
 figure(1)
+set(gca,'fontsize', 16) 
 hold on
 yyaxis left
 ylabel('Couple (N.m)')
@@ -98,6 +113,7 @@ xlabel('Vitesse de 0 à '+string(vmax)+'km/h')
 hold off
 
 figure(2)
+set(gca,'fontsize', 16) 
 hold on
 yyaxis left
 ylabel('Tension (V)')
@@ -110,6 +126,7 @@ title('Courbe de courants/tensions pour t='+string(t)+' s')
 xlabel('Vitesse de 0 à '+string(vmax)+'km/h')
 
 figure(3)
+set(gca,'fontsize', 16) 
 hold on
 yyaxis left
 ylabel('Nombre de cellule en série')

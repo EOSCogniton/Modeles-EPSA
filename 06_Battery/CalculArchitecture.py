@@ -12,7 +12,7 @@
 ## Paramètres
 # Paramètres du programme
 t = 10  # s (temps visé pour passer de 0 à v km/h)
-v = 30 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
+v = 20 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
 module_max = 7 # Nombre de modules maximum, nécessaire tant qu'on n'a pas optimisé le programme
 
 dict_mode = {'d':'debouts','c':'de côté','p':'à plat'} # d,c,p pour debout, couché, à plat (orientation des modules pour les calculs)
@@ -24,9 +24,9 @@ cell_A = 10  # A (décharge en pic)
 cell_V_max = 4.2 # V (Tension maximale après charge) 
 cell_V = 3.6  # V (Tension nominale)
 cell_V_cutoff = 2.5 # V (Tension minimale à la décharge)
-cell_C = 3000 # mAh (Capacité de la cellule)
+cell_C = 2500 # mAh (Capacité de la cellule)
 cell_h = 65  # mm (hauteur)
-cell_d = 18.5  # mm (diamètre)
+cell_d = 18.4  # mm (diamètre)
 cell_E = cell_V*cell_C*10**(-3)/3600
 
 # Marges pour module
@@ -39,17 +39,18 @@ separation = 10 # mm (Epaisseur de la séparation entre chaque module)
 hauteur = cell_h + marge_hauteur * 2 + separation
 
 # Limitations modules
-module_V_max = 120 # V (Tension maximale d'un module)
+module_V_max = 60 # V (Tension maximale d'un module)
 module_E_max = 1*10**6 # J (Energie maximale d'un module)
 
 # Paramètres Batterie
-largeur_b = 430 # mm (de bord à bord)
-longueur_b = 320 # mm (du devant à l'arrière)
-hauteur_b = 260 # mm (hauteur)
+largeur_b = 455 # mm (de bord à bord)
+longueur_b = 370 # mm (du devant à l'arrière)
+hauteur_b = 200 # mm (hauteur)
 
-largeur_lv = 150 # mm (Ce qu'on retire afin de caser les parties LV de la batterie)
-longueur_lv = 0 # mm 
-hauteur_lv = 0 # mm
+V_LV_tyva=440*280*80 # mm³ (Volume utilisé chez Tyva pour la LV)
+largeur_lv = 140+10 # mm (Ce qu'on retire afin de caser les parties LV de la batterie)
+longueur_lv = 10 # mm 
+hauteur_lv = 10 # mm
 
 largeur_util = largeur_b-largeur_lv # mm
 longueur_util = longueur_b-longueur_lv # mm
@@ -70,6 +71,12 @@ mot_eff = 0.95 # (Efficacité du moteur)
 
 SCx = 0.66 # m² (Issu des essais d'invictus, à redémontrer via simulation)
 rho_a = 1.225 # kg/m³ (Densité de l'air)
+
+mu_roll = 0.02 # (arbitraire, à déterminer avec nos pneus)
+
+Sf = 1.5 # (Safety factor, pour prendre des marges)
+
+g=9.81 # m/s² (accélération terrestre)
 
 
 import copy as cop
@@ -107,7 +114,7 @@ def comp(x,y):
 def transfo(x,y,z,t):
     return(x+t[0], y+t[1], z+t[2])
 
-def ajout_point(chemins):
+def ajout_point(chemins,a,b,c,nb_points):
     res = []
     transformations = [[1,0,0], [0,1,0], [0,0,1],[-1,0,0], [0,-1,0], [0,0,-1]]
     for chem in chemins:
@@ -136,7 +143,7 @@ def ajout_point(chemins):
 def connexes(a,b,c,nb_points):
     chemins = [[(0,0,0)]]
     for _ in range(nb_points-1):
-        chemins = ajout_point(chemins)
+        chemins = ajout_point(chemins,a,b,c,nb_points)
     tr = sorted(chemins)
     res = []
     for truc in tr:
@@ -179,20 +186,25 @@ def final_minimal_v(all_chemins):
 ## Début des calculs
 
 a = v / t / 3.6
-F = m * a + 1/2 * rho_a * SCx * (v/3.6)**2
+
+Fair=SCx * 1/2 * rho_a * (1/3.6)*v**2
+Froll=mu_roll*m*g
+Facc = m * a
+F = Sf*(Facc + Fair + Froll)
+
 w_t = F * D_roue / 2  # N.m (Wheel torque)
 m_t = w_t * gear_ratio  # N.m (motor torque needed)
 m_I = m_t / NmA  # A (courant nécessaire par phase)
 w_s = v / D_roue * 2  # rad/s (vitesse de rotation des roues à v)
 m_s = w_s / gear_ratio  # rad/s (vitesse moteur)
-Pnec = m_s * m_t / mot_eff  # W Puissance totale nécessaire
-Vnec = Pnec / m_I / np.sqrt(3)  # V Tension en sortie de batterie nécessaire
+Pnec = m_s * m_t   # W Puissance totale en sortie du moteur nécessaire
+Vnec = Pnec / m_I / np.sqrt(3) / mot_eff  # V Tension en sortie de batterie nécessaire
 n_v_cell = np.ceil(Vnec / cell_V_cutoff)  # nombre de cellule nécessaire en série
 n_a_cell = np.ceil(m_I / cell_A)  # nombre de cellule nécessaire en parallèle
 
 # Affichage des résultats
-print('Temps (s) :', t)
-print('Vitesse pour optimisation volume (km/h) :', v)
+print('Temps : {} s'.format(t))
+print('Vitesse pour optimisation volume : {} km/h'.format(v))
 
 p=int(n_a_cell)
 smax=int(n_v_cell)
@@ -234,7 +246,7 @@ for mode in modes:
 
                 a = int(largeur_util/largeur_mod)-1
                 b = int(longueur_util/longueur_mod)-1
-                c = int(hauteur_util/hauteur_mod)-1
+                c = min(0,int(hauteur_util/hauteur_mod)-1)
                 
                 nb_points=m
                 # print(a,b,c,m)
@@ -255,11 +267,11 @@ try :
     resfinal = final_minimal_v(minichem)
     r=result_cara[resfinal[2]]
     print("Architecture finale en {}s{}p, avec {} modules.".format(r[1],r[2],r[3]))
-    print("Tensions de la batterie : {}V nominal, {}V maximum, {}V minimum.".format(round(r[1]*cell_V*r[3],1),round(r[1]*cell_V_max*r[3],1),round(r[1]*cell_V_cutoff*r[3],1)))
-
-    print("Dimensions d'un module : {}x{}x{}mm (lxLxh), pour une tension de {}V nominal, {}V max, {}V min.".format(int(calcul_largeur(r[2])),int(calcul_longueur(r[1])),int(hauteur-separation),round(r[1]*cell_V,1),round(r[1]*cell_V_max,1),round(r[1]*cell_V_cutoff,1)))
+    print("Tension de la batterie : {} V nominal, {} V maximum, {} V minimum.".format(round(r[1]*cell_V*r[3],1),round(r[1]*cell_V_max*r[3],1),round(r[1]*cell_V_cutoff*r[3],1)))
+    print("Courant maximal en sortie : {} A.".format(round(r[2]*cell_A,1)))
+    print("Dimensions d'un module : {} x {} x {} mm (lxLxh), pour une tension de {} V nominal, {} V max, {} V min.".format(int(calcul_largeur(r[2])),int(calcul_longueur(r[1])),int(hauteur-separation),round(r[1]*cell_V,1),round(r[1]*cell_V_max,1),round(r[1]*cell_V_cutoff,1)))
     print("Les modules sont placés {}, dans le sens de la {}, selon les coordonnées suivantes : {}".format(dict_mode[r[4]],dict_orientation[r[5]],resfinal[1][0]))
-    print("Ils occupent une enveloppe totale de {}L, avec comme point en extrémité de l'enveloppe : ({},{},{})".format(round(r[0][0]*10**(-6),2),int(r[0][1]),int(r[0][2]),int(r[0][3])))
+    print("Ils occupent une enveloppe totale de {} L, avec comme point en extrémité de l'enveloppe : ({},{},{})".format(round(r[0][0]*10**(-6),2),int(r[0][1]),int(r[0][2]),int(r[0][3])))
 
 except:
     print("Impossible d'atteindre une telle vitesse avec si peu d'espace !")
