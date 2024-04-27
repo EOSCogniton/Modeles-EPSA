@@ -12,7 +12,7 @@
 ## Paramètres
 # Paramètres du programme
 t = 10  # s (temps visé pour passer de 0 à v km/h)
-v = 20 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
+v = 15 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
 module_max = 7 # Nombre de modules maximum, nécessaire tant qu'on n'a pas optimisé le programme
 
 dict_mode = {'d':'debouts','c':'de côté','p':'à plat'} # d,c,p pour debout, couché, à plat (orientation des modules pour les calculs)
@@ -20,7 +20,7 @@ dict_orientation = {'l':'largeur','L':'longueur'} # L ou l pour orienté selon l
 
 
 # Paramètres de la cellule
-cell_A = 10  # A (décharge en pic)
+cell_A = 20  # A (décharge en pic)
 cell_V_max = 4.2 # V (Tension maximale après charge) 
 cell_V = 3.6  # V (Tension nominale)
 cell_V_cutoff = 2.5 # V (Tension minimale à la décharge)
@@ -43,8 +43,8 @@ module_V_max = 60 # V (Tension maximale d'un module)
 module_E_max = 1*10**6 # J (Energie maximale d'un module)
 
 # Paramètres Batterie
-largeur_b = 455 # mm (de bord à bord)
-longueur_b = 370 # mm (du devant à l'arrière)
+largeur_b = 440 # mm (de bord à bord)
+longueur_b = 340 # mm (du devant à l'arrière)
 hauteur_b = 200 # mm (hauteur)
 
 V_LV_tyva=440*280*80 # mm³ (Volume utilisé chez Tyva pour la LV)
