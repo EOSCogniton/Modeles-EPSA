@@ -18,7 +18,7 @@ close all
 vmax = 100; %km/h (vitesse maximale pour les courbes)
 pas_v = 1 ; %km/h (vitesse entre chaque point de la courbe)
 
-t = 5; % s (temps visé pour passer de 0 à v km/h)
+t = 10; % s (temps visé pour passer de 0 à v km/h)
 
 %%%% Paramètres de la voiture
 %Cellule

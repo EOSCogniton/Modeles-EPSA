@@ -9,10 +9,15 @@
 # de la vitesse sont accessible via un matlab appelé "BatterySpec.m"
 
 
+import copy as cop
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
 ## Paramètres
 # Paramètres du programme
 t = 10  # s (temps visé pour passer de 0 à v km/h)
-v = 15 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
+v = 20 # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
 module_max = 7 # Nombre de modules maximum, nécessaire tant qu'on n'a pas optimisé le programme
 
 dict_mode = {'d':'debouts','c':'de côté','p':'à plat'} # d,c,p pour debout, couché, à plat (orientation des modules pour les calculs)
@@ -28,6 +33,7 @@ cell_C = 2500 # mAh (Capacité de la cellule)
 cell_h = 65  # mm (hauteur)
 cell_d = 18.4  # mm (diamètre)
 cell_E = cell_V*cell_C*10**(-3)/3600
+connexion_surface_rayon = 5 # mm (rayon de la surface de contact électrique)
 
 # Marges pour module
 marge_trou = 3  # mm (On ajoute x mm au diamètre pour être sûr que ça rentre bien)
@@ -37,6 +43,8 @@ marge_hauteur = 2  # mm (Marge pour rajouter une plaque en hauteur)
 marge_BMS = 10  # mm (Marge à rajouter pour contenir le BMS du module)
 separation = 10 # mm (Epaisseur de la séparation entre chaque module)
 hauteur = cell_h + marge_hauteur * 2 + separation
+busbar_width = (cell_d + marge_trou)*math.cos(30 * math.pi / 180) + connexion_surface_rayon*2 # mm (Largeur du busbar)
+busbar_current_density = 2 # A/mm² (densité de courant du busbar, des sources pour ces valeurs seraient bienvenues)
 
 # Limitations modules
 module_V_max = 60 # V (Tension maximale d'un module)
@@ -78,20 +86,15 @@ Sf = 1.5 # (Safety factor, pour prendre des marges)
 
 g=9.81 # m/s² (accélération terrestre)
 
-
-import copy as cop
-import math
-import numpy as np
-import matplotlib.pyplot as plt
-
-
-
 ## Fonctions
 def calcul_largeur(p):
     return (p + 1/2) * (cell_d + marge_trou) + marge_largeur * 2 + separation
 
 def calcul_longueur(s):
     return (cell_d + marge_trou) * math.cos(30 * math.pi / 180) * (s - 1) + (cell_d + marge_trou) + 2 * marge_longueur + marge_BMS + separation
+
+def calcul_busbar_thickness(A):
+    return A/(busbar_current_density*busbar_width)
 
 def comp(x,y):
     if x == y:
@@ -200,7 +203,7 @@ m_s = w_s / gear_ratio  # rad/s (vitesse moteur)
 Pnec = m_s * m_t   # W Puissance totale en sortie du moteur nécessaire
 Vnec = Pnec / m_I / np.sqrt(3) / mot_eff  # V Tension en sortie de batterie nécessaire
 n_v_cell = np.ceil(Vnec / cell_V_cutoff)  # nombre de cellule nécessaire en série
-n_a_cell = np.ceil(m_I / cell_A)  # nombre de cellule nécessaire en parallèle
+n_a_cell = 5#np.ceil(m_I / cell_A)  # nombre de cellule nécessaire en parallèle
 
 # Affichage des résultats
 print('Temps : {} s'.format(t))
@@ -272,6 +275,7 @@ try :
     print("Dimensions d'un module : {} x {} x {} mm (lxLxh), pour une tension de {} V nominal, {} V max, {} V min.".format(int(calcul_largeur(r[2])),int(calcul_longueur(r[1])),int(hauteur-separation),round(r[1]*cell_V,1),round(r[1]*cell_V_max,1),round(r[1]*cell_V_cutoff,1)))
     print("Les modules sont placés {}, dans le sens de la {}, selon les coordonnées suivantes : {}".format(dict_mode[r[4]],dict_orientation[r[5]],resfinal[1][0]))
     print("Ils occupent une enveloppe totale de {} L, avec comme point en extrémité de l'enveloppe : ({},{},{})".format(round(r[0][0]*10**(-6),2),int(r[0][1]),int(r[0][2]),int(r[0][3])))
+    print("Epaisseur des busbar : {} mm".format(calcul_busbar_thickness(r[2]*cell_A),1))
 
 except:
     print("Impossible d'atteindre une telle vitesse avec si peu d'espace !")
