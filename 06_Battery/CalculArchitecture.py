@@ -36,14 +36,14 @@ cell_E = cell_V*cell_C*10**(-3)/3600
 connexion_surface_rayon = 5 # mm (rayon de la surface de contact électrique)
 
 # Marges pour module
-marge_trou = 3  # mm (On ajoute x mm au diamètre pour être sûr que ça rentre bien)
+marge_cell = 3  # mm (On ajoute x mm au diamètre entre chaque cellule)
 marge_largeur = 1  # mm (Marges latérales avant et après une parallèle de cellule)
 marge_longueur = 3  # mm (Marges en longueur avant et après une série de cellule)
 marge_hauteur = 2  # mm (Marge pour rajouter une plaque en hauteur)
 marge_BMS = 10  # mm (Marge à rajouter pour contenir le BMS du module)
 separation = 10 # mm (Epaisseur de la séparation entre chaque module)
 hauteur = cell_h + marge_hauteur * 2 + separation
-busbar_width = (cell_d + marge_trou)*math.cos(30 * math.pi / 180) + connexion_surface_rayon*2 # mm (Largeur du busbar)
+busbar_width = (cell_d + marge_cell)*math.cos(30 * math.pi / 180) + connexion_surface_rayon*2 # mm (Largeur du busbar)
 busbar_current_density = 2 # A/mm² (densité de courant du busbar, des sources pour ces valeurs seraient bienvenues)
 
 # Limitations modules
@@ -88,10 +88,10 @@ g=9.81 # m/s² (accélération terrestre)
 
 ## Fonctions
 def calcul_largeur(p):
-    return (p + 1/2) * (cell_d + marge_trou) + marge_largeur * 2 + separation
+    return (p + 1/2) * (cell_d + marge_cell) + marge_largeur * 2 + separation
 
 def calcul_longueur(s):
-    return (cell_d + marge_trou) * math.cos(30 * math.pi / 180) * (s - 1) + (cell_d + marge_trou) + 2 * marge_longueur + marge_BMS + separation
+    return (cell_d + marge_cell) * math.cos(30 * math.pi / 180) * (s - 1) + (cell_d + marge_cell) + 2 * marge_longueur + marge_BMS + separation
 
 def calcul_busbar_thickness(A):
     return A/(busbar_current_density*busbar_width)
