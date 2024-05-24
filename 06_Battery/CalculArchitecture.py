@@ -43,8 +43,6 @@ marge_hauteur = 2  # mm (Marge pour rajouter une plaque en hauteur)
 marge_BMS = 10  # mm (Marge à rajouter pour contenir le BMS du module)
 separation = 10 # mm (Epaisseur de la séparation entre chaque module)
 hauteur = cell_h + marge_hauteur * 2 + separation
-busbar_width = (cell_d + marge_cell)*math.cos(30 * math.pi / 180) + connexion_surface_rayon*2 # mm (Largeur du busbar)
-busbar_current_density = 2 # A/mm² (densité de courant du busbar, des sources pour ces valeurs seraient bienvenues)
 
 # Limitations modules
 module_V_max = 60 # V (Tension maximale d'un module)
@@ -275,7 +273,6 @@ try :
     print("Dimensions d'un module : {} x {} x {} mm (lxLxh), pour une tension de {} V nominal, {} V max, {} V min.".format(int(calcul_largeur(r[2])),int(calcul_longueur(r[1])),int(hauteur-separation),round(r[1]*cell_V,1),round(r[1]*cell_V_max,1),round(r[1]*cell_V_cutoff,1)))
     print("Les modules sont placés {}, dans le sens de la {}, selon les coordonnées suivantes : {}".format(dict_mode[r[4]],dict_orientation[r[5]],resfinal[1][0]))
     print("Ils occupent une enveloppe totale de {} L, avec comme point en extrémité de l'enveloppe : ({},{},{})".format(round(r[0][0]*10**(-6),2),int(r[0][1]),int(r[0][2]),int(r[0][3])))
-    print("Epaisseur des busbar : {} mm".format(calcul_busbar_thickness(r[2]*cell_A),1))
 
 except:
     print("Impossible d'atteindre une telle vitesse avec si peu d'espace !")
