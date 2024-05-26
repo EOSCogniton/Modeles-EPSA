@@ -38,11 +38,14 @@ cell_largeur = largeur_tot
 cell_longueur = longueur_tot
 air_V = math.pi*((cell_d+marge_cell)/2)**2*cell_h-cell_V
 
+dx=dy=cell_d
+
 # Paramètre ventilo
 P = 3 # W (puissance ventilateur)
 Qv= 115 # m³/h (débit)
 Cv_air = 0.34 # Wh/m³/K
 v_air = 20 # m/s (vitesse de l'air)
+r_air = 287.058 # J/kg/K (constante des gaz parfait spécifique à l'air)
 
 cp_air = 1001.2 # J/kg/K (chaleur spécifique air)
 l_c = 123e-3 # m (largeur conduite)
@@ -53,10 +56,9 @@ cp_cuivre = 385 #J/kg/K (chaleur spécifique cuivre)
 resi_cuivre = 20e-9 #Ohm m (résistivité cuivre à 60°C)
 rho_cuivre = 8960 #kg/m³ (densité volumique cuivre)
 
-
 # Paramètre de simulation
 T_ini = 20. #°C (température initiale air)
-t_final = 500 # s (temps d'arrêt de la simulation)
+t_final = 3600 # s (temps d'arrêt de la simulation)
 N = 50000 # (nombre de point de la simulation)
 dt = t_final/N
 
@@ -84,13 +86,41 @@ def air_density(T):
     Tf = T+273.15
     return 1013*10*2/(287.0500676*Tf)
 
+def curve_air_density():
+    T=np.linspace(0,100)
+    rho=[air_density(Tk) for Tk in T]
+    plt.plot(T,rho)
+    plt.show()
+
 def Pr_air(T): #https://en.wikipedia.org/wiki/Prandtl_number
     return 10**9/(1.1*T**3-1200*T**2+322000*T+1.393*10**9)
 
 def area_busbar(T,t):
     return parallele*cell_I*math.sqrt(resi_cuivre*t/(cp_cuivre*rho_cuivre*(T-T_ini)))
 
-# def Ra(T,L):
+def equation_air(x,y,k,dt,dx,dy,Tempe,v,qstar):
+    Tact=Tempe[x][y][k]
+    rho_air=air_density(Tact)
+    k_air=air_thermal_conductivity(Tact)
+    if k==0 or k==1:
+        return Tact
+    if x>=serie-1:
+        Tx1=Tact
+    else:
+        Tx1=Tempe[x+1][y][k]
+    if x==0:
+        Txm1=T_ini
+    else:
+        Txm1=Tempe[x-1][y][k+1]
+    # term1=0#k_air/rho_air/cp_air*2*dt*((Tempe[x+2][y][k]+Tempe[x-2][y][k]-2*Tact)/(4*dx**2)+(Tempe[x][y+2][k]+Tempe[x][y-2][k]-2*Tact)/(4*dy**2))
+    # term2=2*dt/cp_air*qstar
+    # term3=-v*2*dt*((Tx1-Txm1)/(2*dx))#+(Tempe[x][y+1][k]-Tempe[x][y-1][k])/(2*dy))
+    # term4=Tempe[x][y][k]
+    # return term1+term2+term3+term4
+    return (1/dx+v*dt)*(dx*dt*qstar/cp_air+dx*Tact+dt*v*Txm1)
+
+
+# def Ra(T,L): #(Rayleigh)
 #     Tf=(T+T_air)/2+273.15
 #     return 9.81/Tf/kin_viscosity**2*(T-T_air)*L**3*Pr_air(Tf)
 
@@ -101,50 +131,36 @@ def heat_transfer_coeff(v,T,L): #Dittus–Boelter equation
     Nu = 0.023*np.abs(Re(v,L))**(0.8)*np.abs(Pr_air(T))**0.4
     return Nu * air_thermal_conductivity(T)/L
 
+def curve_heat_transfer(v,L):
+    T=np.linspace(0,100)
+    h=[heat_transfer_coeff(v,Tk,L) for Tk in T]
+    plt.plot(T,h)
+    plt.show()
 
-# def heat_transfer_coeff(T,L):
+
+# def heat_transfer_coeff(T,L): #(autre formule)
 #     Tf=(T+T_air)/2+273.15
 #     Ray=Ra(T,L)
 #     Pra=Pr_air(Tf)
 #     k = air_thermal_conductivity(Tf)
 #     return k/L*(0.825+0.387*Ray**(1/6)/(1+(0.492/Pra)**(9/16))**(8/27))**2
-Prise en compte débit massique !
 for k in range(N-1):
     for x in range(serie):
         for y in range(parallele):
             deltaS = entropy(0.8)
             T_cell=cell_temp[x][y][k]
             if x==0:
-                v_air=Qv/largeur_tot/cell_h/3600
-                L=l_c
-                T_air=T_ini
+                T_air_left=T_ini
+                #v_air=Qv/largeur_tot/cell_h/3600
+                #L=l_c
+                q=0
             else:
-                v_air=Qv/(largeur_tot*cell_h-cell_d*parallele*cell_h)/3600
-                L=largeur_tot-cell_d*parallele
-                T_cell_left=cell_temp[x-1][y][k]
                 T_air_left=air_temp[x-1][y][k]
-                if x%2==0:
-                    if y==parallele-1:
-                        T_cell_second_left=cell_temp[x-2][y][k]
-                        T_air_second_left=air_temp[x-2][y][k]
-                    else :
-                        T_cell_second_left=cell_temp[x-1][y+1][k]
-                        T_air_second_left=air_temp[x-1][y+1][k]
-                else:
-                    if y==0:
-                        if x==1:
-                            T_cell_second_left=T_ini
-                            T_air_second_left=T_ini
-                        else:
-                            T_cell_second_left=cell_temp[x-2][y][k]
-                            T_air_second_left=air_temp[x-2][y][k]
-                    else :
-                        T_cell_second_left=cell_temp[x-1][y-1][k]
-                        T_air_second_left=air_temp[x-1][y-1][k]
-                coeff_left=heat_transfer_coeff(v_air,T_air_left,L)*cell_S/air_density(T_air_left)/heat_spec_capacity(T_air_left)/cell_V*(T_cell_left-T_air_left)*dt
-                coeff_second_left=heat_transfer_coeff(v_air,T_air_second_left,L)*cell_S/air_density(T_air_second_left)/heat_spec_capacity(T_air_second_left)/cell_V*(T_cell_second_left-T_air_second_left)*dt
-                # print(heat_transfer_coeff(v_air,T_air_left,L),air_density(T_air_left),heat_spec_capacity(T_air_left),(T_cell_left-T_air_left),coeff_left)
-                T_air = 0.5*(T_air_left+T_air_second_left+coeff_left+coeff_second_left)
+                T_cell_left=cell_temp[x-1][y][k]
+                q=heat_transfer_coeff(v_air,T_air_left,L)*cell_S*(T_cell_left-T_air_left)
+            v_air=Qv/(largeur_tot*cell_h-cell_d*parallele*cell_h)/3600
+            L=largeur_tot-cell_d*parallele
+            T_air=T_air_left+q/Qv/air_density(T_air_left)/r_air*3600
             h = heat_transfer_coeff(v_air,T_air,L)
             cell_temp[x][y][k+1]=T_cell+dt*equation(h,deltaS,T_cell,T_air)
             air_temp[x][y][k+1]=T_air
@@ -163,13 +179,13 @@ def print_air_temp(t):
         for y in range(serie):
             string=string+str(air_temp[y][x][t])+" - "
         print(string)
-        
 
-def print_all():
+def print_all(tf=t_final):
+    kf=int(N*tf/t_final)
     for x in range(serie):
         for y in range(parallele):
             plt.subplot(parallele,serie,y*serie+x+1)
-            plt.plot(t,cell_temp[x][y])
+            plt.plot(t[:kf],cell_temp[x][y][:kf])
     plt.show()
 
 def simple_render(t=0):
@@ -235,7 +251,7 @@ def animate(frame,axes,frames,tini,tfin):
         plt.text(tex[0],tex[1],tex[2],horizontalalignment='center',verticalalignment='top',fontsize=10)
     plt.title("Temps : {}s".format(str(int(t*dt))))
 
-def create_animation(tini,tfin,frames=150,fps=15):
+def create_animation(tini=0,tfin=t_final,frames=150,fps=15):
     fig, ax = plt.subplots(figsize=(int(5*longueur_tot/largeur_tot),5)) # note we must use plt.subplots, not plt.subplot
     cmap = (mpl.colors.ListedColormap(["cyan","lawngreen","yellow","orange","red"]).with_extremes(under="blue", over="darkred"))
     bounds = [20, 30, 40, 50, 55, 60]
