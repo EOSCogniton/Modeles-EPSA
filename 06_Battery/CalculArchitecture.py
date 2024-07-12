@@ -37,21 +37,23 @@ connexion_surface_rayon = 5 # mm (rayon de la surface de contact électrique)
 
 # Marges pour module
 marge_cell = 3  # mm (On ajoute x mm au diamètre entre chaque cellule)
-marge_largeur = 1  # mm (Marges latérales avant et après une parallèle de cellule)
-marge_longueur = 3  # mm (Marges en longueur avant et après une série de cellule)
+marge_largeur = 1  # mm (Marges latérales avant et après les parallèles)
+marge_longueur = 3  # mm (Marges en longueur avant et après les séries)
 marge_hauteur = 2  # mm (Marge pour rajouter une plaque en hauteur)
-marge_BMS = 10  # mm (Marge à rajouter pour contenir le BMS du module)
 separation = 10 # mm (Epaisseur de la séparation entre chaque module)
-hauteur = cell_h + marge_hauteur * 2 + separation
+ep_protection = 10 # mm (Protection des soudures)
+rajout_connecteur_largeur = 30 # mm (Longueur connecteur)
+rajout_connecteur_longueur = 40 - marge_longueur # mm (Longueur connecteur)
+hauteur = cell_h + marge_hauteur * 2 + separation + 2* ep_protection
 
 # Limitations modules
 module_V_max = 60 # V (Tension maximale d'un module)
 module_E_max = 1*10**6 # J (Energie maximale d'un module)
 
 # Paramètres Batterie
-largeur_b = 440 # mm (de bord à bord)
-longueur_b = 340 # mm (du devant à l'arrière)
-hauteur_b = 200 # mm (hauteur)
+largeur_b = 3000#440 # mm (de bord à bord)
+longueur_b = 3000#340 # mm (du devant à l'arrière)
+hauteur_b = 3000#200 # mm (hauteur)
 
 V_LV_tyva=440*280*80 # mm³ (Volume utilisé chez Tyva pour la LV)
 largeur_lv = 140+10 # mm (Ce qu'on retire afin de caser les parties LV de la batterie)
@@ -80,16 +82,16 @@ rho_a = 1.225 # kg/m³ (Densité de l'air)
 
 mu_roll = 0.02 # (arbitraire, à déterminer avec nos pneus)
 
-Sf = 1.5 # (Safety factor, pour prendre des marges)
+Sf = 1 # (Safety factor, pour prendre des marges)
 
 g=9.81 # m/s² (accélération terrestre)
 
 ## Fonctions
 def calcul_largeur(p):
-    return (p + 1/2) * (cell_d + marge_cell) + marge_largeur * 2 + separation
+    return (p + 1/2) * (cell_d + marge_cell) + marge_largeur * 2 + separation + rajout_connecteur_largeur
 
 def calcul_longueur(s):
-    return (cell_d + marge_cell) * math.cos(30 * math.pi / 180) * (s - 1) + (cell_d + marge_cell) + 2 * marge_longueur + marge_BMS + separation
+    return (cell_d + marge_cell) * math.cos(30 * math.pi / 180) * (s - 1) + (cell_d + marge_cell) + 2 * marge_longueur + separation + 2 * rajout_connecteur_longueur
 
 def calcul_busbar_thickness(A):
     return A/(busbar_current_density*busbar_width)
@@ -201,7 +203,7 @@ m_s = w_s / gear_ratio  # rad/s (vitesse moteur)
 Pnec = m_s * m_t   # W Puissance totale en sortie du moteur nécessaire
 Vnec = Pnec / m_I / np.sqrt(3) / mot_eff  # V Tension en sortie de batterie nécessaire
 n_v_cell = np.ceil(Vnec / cell_V_cutoff)  # nombre de cellule nécessaire en série
-n_a_cell = 5#np.ceil(m_I / cell_A)  # nombre de cellule nécessaire en parallèle
+n_a_cell = np.ceil(m_I / cell_A)  # nombre de cellule nécessaire en parallèle
 
 # Affichage des résultats
 print('Temps : {} s'.format(t))
