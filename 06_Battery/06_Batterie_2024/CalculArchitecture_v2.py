@@ -67,7 +67,7 @@ module_max = len(chemins)  # (Nombre maximum de modules)
 # Paramètres Batterie
 largeur_b = 600  # 440 # mm (de bord à bord)
 longueur_b = 600  # 340 # mm (du devant à l'arrière)
-hauteur_b = 1200  # 200 # mm (hauteur)
+hauteur_b = 600  # 200 # mm (hauteur)
 V_max = 600  # V (Tension maximale de la batterie)
 P_max = 80000  # W (Puissance maximale en sortie de TSAC)
 
