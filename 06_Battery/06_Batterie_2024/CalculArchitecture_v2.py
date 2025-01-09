@@ -25,6 +25,8 @@ chemins = json.load(f)
 # Paramètres du programme
 t = 10  # s (temps visé pour passer de 0 à v km/h)
 v = 60  # km/h (vitesse qui sera utilisé pour les calculs d'optimisation de volume)
+v_s = 60 / 3.6
+
 
 dict_mode = {
     "d": "debouts",
@@ -38,11 +40,11 @@ dict_orientation = {
 
 
 # Paramètres de la cellule
-cell_A = 20  # A (décharge en pic)
+cell_A = 6  # A (décharge en pic)
 cell_V_max = 4.2  # V (Tension maximale après charge)
-cell_V = 3.6  # V (Tension nominale)
+cell_V = 3.67  # V (Tension nominale)
 cell_V_cutoff = 2.5  # V (Tension minimale à la décharge)
-cell_C = 2500  # mAh (Capacité de la cellule)
+cell_C = 2850  # mAh (Capacité de la cellule)
 cell_h = 65  # mm (hauteur)
 cell_d = 18.4  # mm (diamètre)
 cell_E = cell_V * cell_C * 10 ** (-3) / 3600
@@ -176,9 +178,9 @@ def pathcleaner(chem, a, b, c):
 
 ## Début des calculs
 
-a = v / t / 3.6
+a = v_s / t
 
-Fair = SCx * 1 / 2 * rho_a * (1 / 3.6) * v**2
+Fair = SCx * 1 / 2 * rho_a * v_s**2
 Froll = mu_roll * m * g
 Facc = m * a
 F = Sf * (Facc + Fair + Froll)
@@ -186,7 +188,7 @@ F = Sf * (Facc + Fair + Froll)
 w_t = F * D_roue / 2  # N.m (Wheel torque)
 m_t = w_t * gear_ratio  # N.m (motor torque needed)
 m_I = m_t / NmA  # A (courant nécessaire par phase)
-w_s = v / D_roue * 2  # rad/s (vitesse de rotation des roues à v)
+w_s = v_s / D_roue * 2  # rad/s (vitesse de rotation des roues à v)
 m_s = w_s / gear_ratio  # rad/s (vitesse moteur)
 Pnec = m_s * m_t  # W Puissance totale en sortie du moteur nécessaire
 Vnec = Pnec / m_I / np.sqrt(3) / mot_eff  # V Tension en sortie de batterie nécessaire
