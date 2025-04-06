@@ -96,21 +96,21 @@ def Pr_air(T): #https://en.wikipedia.org/wiki/Prandtl_number
 def area_busbar(T,t):
     return parallele*cell_I*math.sqrt(resi_cuivre*t/(cp_cuivre*rho_cuivre*(T-T_ini)))
 
-def print_temp(t):
+def print_temp(t): #Affichage des températures des cellules en string
     for x in range(parallele):
         string= ""
         for y in range(serie):
             string=string+str(cell_temp[y][t])+" - "
         print(string)
 
-def print_air_temp(t):
+def print_air_temp(t): #Affichage des températures de l'air en string
     for x in range(parallele):
         string= ""
         for y in range(serie):
             string=string+str(air_temp[y][t])+" - "
         print(string)
 
-def print_all(tf=t_final):
+def print_all(tf=t_final): #Affichage des températures des cellules en graphique
     kf=int(N*tf/t_final)
     for x in range(serie):
         for y in range(parallele):
@@ -118,7 +118,7 @@ def print_all(tf=t_final):
             plt.plot(t[:kf],cell_temp[x][:kf])
     plt.show()
 
-def simple_render(t=0):
+def simple_render(t=0): #Fonction de génération des images pour le gif (version précédente du programme)
     circles_cell=[]
     circles_air=[]
     colors=["blue","cyan","lawngreen","yellow","orange","red","darkred"]
@@ -145,7 +145,7 @@ def simple_render(t=0):
         ax.add_patch(c)
     plt.show()
 
-def animate(frame,axes,frames,tini,tfin):
+def animate(frame,axes,frames,tini,tfin): # Même fonction que précédemment, mais améliorée
     t= math.floor(tini/dt + frame/frames*(tfin-tini)/dt)
     circles_cell=[]
     circles_air=[]
@@ -181,7 +181,7 @@ def animate(frame,axes,frames,tini,tfin):
         plt.text(tex[0],tex[1],tex[2],horizontalalignment='center',verticalalignment='top',fontsize=10)
     plt.title("Temps : {}s".format(str(int(t*dt))))
 
-def create_animation(tini=0,tfin=t_final,frames=150,fps=15):
+def create_animation(tini=0,tfin=t_final,frames=150,fps=15): #Fonction de génération de toute l'animation à partir de "animate"
     fig, ax = plt.subplots(figsize=(int(5*longueur_tot/largeur_tot),5)) # note we must use plt.subplots, not plt.subplot
     cmap = (mpl.colors.ListedColormap(["cyan","lawngreen","yellow","orange","red"]).with_extremes(under="blue", over="darkred"))
     bounds = [20, 30, 40, 50, 55, 60]
@@ -225,11 +225,11 @@ def create_animation(tini=0,tfin=t_final,frames=150,fps=15):
 #     Tf=(T+T_air)/2+273.15
 #     return 9.81/Tf/kin_viscosity**2*(T-T_air)*L**3*Pr_air(Tf)
 
-def Re(v,L):
+def Re(v,L): #Reynolds
     return v*L/kin_viscosity
 
 def heat_transfer_coeff(v,T,L): #Dittus–Boelter equation https://www.sciencedirect.com/topics/engineering/dittus-boelter-correlation
-    Nu = 0.023*np.abs(Re(v,L))**(0.8)*np.abs(Pr_air(T))**0.4
+    Nu = 0.023*np.abs(Re(v,L))**(0.8)*np.abs(Pr_air(T))**0.4 #Nusselt number (voir aussi https://en.wikipedia.org/wiki/Nusselt_number)
     return Nu * air_thermal_conductivity(T)/L
 
 def curve_heat_transfer(v,L):
@@ -239,12 +239,14 @@ def curve_heat_transfer(v,L):
     plt.show()
 
 
-# def heat_transfer_coeff(T,L): #(autre formule)
+# def heat_transfer_coeff(T,L): #(autre formule pour le coefficient de transfert thermique : https://en.wikipedia.org/wiki/Heat_transfer_coefficient)
 #     Tf=(T+T_air)/2+273.15
 #     Ray=Ra(T,L)
 #     Pra=Pr_air(Tf)
 #     k = air_thermal_conductivity(Tf)
 #     return k/L*(0.825+0.387*Ray**(1/6)/(1+(0.492/Pra)**(9/16))**(8/27))**2
+
+# Algo de dichotomie
 a= Qv
 b = Qv+200
 cell_temp = [[99],[99,99]]
