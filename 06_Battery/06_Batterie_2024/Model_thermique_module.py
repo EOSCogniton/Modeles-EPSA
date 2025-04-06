@@ -228,7 +228,7 @@ def create_animation(tini=0,tfin=t_final,frames=150,fps=15):
 def Re(v,L):
     return v*L/kin_viscosity
 
-def heat_transfer_coeff(v,T,L): #Dittus–Boelter equation
+def heat_transfer_coeff(v,T,L): #Dittus–Boelter equation https://www.sciencedirect.com/topics/engineering/dittus-boelter-correlation
     Nu = 0.023*np.abs(Re(v,L))**(0.8)*np.abs(Pr_air(T))**0.4
     return Nu * air_thermal_conductivity(T)/L
 
